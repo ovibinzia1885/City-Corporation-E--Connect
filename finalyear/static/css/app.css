@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.actions_wrapper {padding: 15px}
+
+.mayor_photo ._photo img {
+  width: 100%;
+}
+.desc {
+  text-align: center;
+}
+.action {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  background-color: #e0e5ec;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #a29e9e;
+  cursor: pointer;
+}
+.__slider_wrap {
+  margin-top: 56px;
+}
+.action .icon i {
+  font-size: 5rem;
+}
+.marque {
+  margin-top: 20px;
+  font-weight: 700;
+}
