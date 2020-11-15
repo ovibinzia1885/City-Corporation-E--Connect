@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include('public.urls')),
     path('',include('mayor.urls')),
     path('',include('officer.urls'))
+
 ]
 if settings.DEBUG:
     urlpatterns=urlpatterns+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

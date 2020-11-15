@@ -1,3 +1,5 @@
+
+ {% load static %}
   <nav class="fixed-top mb-1 navbar navbar-expand-lg navbar-dark default-color">
             <a class="navbar-brand" href="#">CCPAS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -25,10 +27,10 @@
                         <a class="nav-link" href="#">Budget</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Project</a>
+                        <a class="nav-link"href="{% url 'login' %}">login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link"  href="{% url 'registration' %}">Registration</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto nav-flex-icons">
