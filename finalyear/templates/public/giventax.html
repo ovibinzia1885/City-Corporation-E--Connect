@@ -1,5 +1,96 @@
-{% extends 'base1.html' %}
-{% load static %}
+{% extends 'publicnav1.html' %}
+
+
+{% block title %}Register | {{ block.super }}{% endblock %}
+
 {% block content %}
-    <h1> i am apply tax</h1>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <section id="register" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>
+                                <i class="fas fa-user-plus"></i>Application for home</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="name"> Name</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                               <div class="form-group">
+                                    <label for="ward">WardNo</label>
+                                    <select name="wardno" id="wardno"   required class="form-control">
+                                        <option value=""  >wardno</option>
+                                        <option value="1" > 1</option>
+                                        <option value="2" >2</option>
+                                        <option value="3" >3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Holding No:</label>
+                                    <input type="text" name="holding" class="form-control" required>
+                                </div>
+                                   <div class="form-group">
+                                    <label for="tax">sleect-year:</label>
+                                    <select name="tax" id="tax"   required class="form-control">
+                                        <option value=""  >select</option>
+                                        <option value="2020" >2020</option>
+                                        <option value="2021" >2021</option>
+                                    </select>
+
+                                        <div class="form-group">
+                                            <select name="type" id="vehicle" class="form-control">
+                                                <option value="" data-price=""> Select</option>
+                                                <option value="1" data-price="500">Home</option>
+                                                <option value="2" data-price="600">Market</option>
+
+                                             </select>
+                                                            <!-- for in key -->
+                                                            <!-- <option value="{{obj.id}}" data-price="{{ obj.price }}"> {{ obj.vehicle_name }}</option> -->
+                                                            <!-- endfor -->
+
+                                         </div>
+                                        <div class="form-group">
+                                            <label for="price"> price</label>
+                                            <input type="text" name="price" id="price" class="form-control" placeholder="price">
+                                        </div>
+
+                                <div class="form-group">
+                                    <label for="password">apply owner pic</label>
+                                   <input type="file" id="" name="">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="tax">pyment Type:</label>
+                                    <select name="payment" id="payment"   required class="form-control">
+                                        <option value=""  >select</option>
+                                        <option value="Bkhas" >Bkhas</option>
+                                        <option value="DDB" >DDB</option>
+                                    </select>
+                                   </div>
+
+                                <input type="submit" value="Submit" class="btn btn-danger btn-block">
+                                       <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $('#vehicle').on('change', function () {
+                                                var price = $(this).find(':selected').data('price');
+                                                $("#price").val(price);
+                                            })
+                                        });
+                                    </script>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

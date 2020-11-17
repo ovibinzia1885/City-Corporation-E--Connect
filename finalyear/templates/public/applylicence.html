@@ -1,5 +1,100 @@
-{% extends 'base1.html' %}
+
 {% load static %}
 {% block content %}
-    <h1> i am apply licence</h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap core CSS -->
+        {#    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">#}
+        <!-- JQuery -->
+        {#    <script src="{% static 'assets/js/jquery.min.js' %}"></script>#}
+
+
+    <section id="register" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>
+                                <i class="fas fa-user-plus"></i> Apply licence</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+
+        <body>
+        <div class="form-group">
+            <label for="name"> name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="name">
+        </div>
+        <div class="form-group">
+            <label for="name">FatherName</label>
+            <input type="text" name="father" id="father" class="form-control" placeholder="FatherName">
+        </div>
+        <div class="form-group">
+            <label for="name">NIDNumber</label>
+            <input type="text" name="nid" id="nid" class="form-control" placeholder="NIDNumber">
+        </div>
+        <div class="form-group">
+            <label for="email"> email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="email">
+        </div>
+        <div class="col-sm-4">
+            <label for="dropdown"> select:</label>
+
+            <div class="form-group">
+                <select name="type" id="vehicle" class="form-control">
+                    <option value="" data-price=""> Select</option>
+                    <option value="1" data-price="500"> BUS</option>
+                    <option value="2" data-price="600"> TRUCK</option>
+                    <option value="3" data-price="300"> AutoRiskhaw</option>
+                     <option value="4" data-price="250"> CnG</option>
+
+
+                    <!-- for in key -->
+                    <!-- <option value="{{obj.id}}" data-price="{{ obj.price }}"> {{ obj.vehicle_name }}</option> -->
+                    <!-- endfor -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address"> address</label>
+                <input type="text" name="address" id="address" class="form-control" placeholder="address">
+            </div>
+
+
+            <div class="form-group">
+                <label for="price"> price</label>
+                <input type="text" name="price" id="price" class="form-control" placeholder="price">
+            </div>
+             <div class="form-group">
+                 <label for="pyment">select pyment:</label>
+                <select name="pyment" id="pyment" class="form-control">
+                    <option value="" data-price=""> Select</option>
+                    <option value="1" data-price="500"> BUS</option>
+                    <option value="2" data-price="600"> TRUCK</option>
+
+
+                    <!-- for in key -->
+                    <!-- <option value="{{obj.id}}" data-price="{{ obj.price }}"> {{ obj.vehicle_name }}</option> -->
+                    <!-- endfor -->
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-danger btn-block">
+
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#vehicle').on('change', function () {
+                    var price = $(this).find(':selected').data('price');
+                    $("#price").val(price);
+                })
+            });
+        </script>
+        </body>
+    </form>
+                        </div>
+    </html>
 {% endblock %}
