@@ -1,39 +1,71 @@
-{% extends 'base1.html' %}
-{% load static %}
+{% extends 'publicnav1.html' %}
+
+
+{% block title %}Register | {{ block.super }}{% endblock %}
+
 {% block content %}
-   <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
+
+
+    <section id="register" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>
+                                <i class="fas fa-user-plus"></i> AddProblem</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="first_name">Problem Type</label>
+                                    <select name="usertype" id="vehicle"   required class="form-control">
+                                        <option value=""  > type</option>
+                                        <option value="Enviroment" > Enviroment</option>
+                                        <option value="Electricity" >Electricity</option>
+                                        <option value="AirPollution" >AirPollution</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"> Name</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                               <div class="form-group">
+                                    <label for="ward">WardNo</label>
+                                    <select name="wardno" id="vehicle"   required class="form-control">
+                                        <option value=""  >wardno</option>
+                                        <option value="1" > 1</option>
+                                        <option value="2" >2</option>
+                                        <option value="3" >3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                      <label for="inputPassword3" class="col-sm-2 col-form-label">Breif :</label>
+                                      <textarea rows="4" cols="50" name="" >
+                                      </textarea>
+
+                                  </div>
+                                <div class="form-group">
+                                    <label for="password">Problem picture</label>
+                                   <input type="file" id="" name="">
+                                </div>
+                                <input type="submit" value="Submit" class="btn btn-danger btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
-
-                  <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Check me out
-                  </label>
-                </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
+        </div>
+    </section>
 {% endblock %}

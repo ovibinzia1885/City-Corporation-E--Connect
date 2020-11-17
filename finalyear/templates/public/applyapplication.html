@@ -1,5 +1,84 @@
-{% extends 'base1.html' %}
-{% load static %}
+{% extends 'publicnav1.html' %}
+
+
+{% block title %}Register | {{ block.super }}{% endblock %}
+
 {% block content %}
-    <h1> i am apply application</h1>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <section id="register" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>
+                                <i class="fas fa-user-plus"></i>Application for home</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="name"> Name</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                               <div class="form-group">
+                                    <label for="ward">WardNo</label>
+                                    <select name="wardno" id="vehicle"   required class="form-control">
+                                        <option value=""  >wardno</option>
+                                        <option value="1" > 1</option>
+                                        <option value="2" >2</option>
+                                        <option value="3" >3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control" required>
+                                </div>
+                                   <div class="form-group">
+                                    <label for="tax">Previous Tax:</label>
+                                    <select name="tax" id="tax"   required class="form-control">
+                                        <option value=""  >select</option>
+                                        <option value="paid" >paid</option>
+                                        <option value="due" >due</option>
+                                    </select>
+                                   </div>
+                              <div class="form-group">
+                                    <label for="first_name">Select Floor:</label>
+                                    <select name="floor" id="floor"   required class="form-control">
+                                        <option value=""  >floor</option>
+                                        <option value="1" > 1th</option>
+                                        <option value="2" >2th</option>
+                                        <option value="3" >3rd</option>
+                                        <option value="4" >4th</option>
+                                        <option value="5" >5th</option>
+                                        <option value="6" >6th</option>
+                                    </select>
+
+                              </div>
+
+                                <div class="form-group">
+                                    <label for="password">apply owner pic</label>
+                                   <input type="file" id="" name="">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="tax">pyment Type:</label>
+                                    <select name="tax" id="tax"   required class="form-control">
+                                        <option value=""  >select</option>
+                                        <option value="Bkhas" >Bkhas</option>
+                                        <option value="DDB" >DDB</option>
+                                    </select>
+                                   </div>
+                                <input type="submit" value="Submit" class="btn btn-danger btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
