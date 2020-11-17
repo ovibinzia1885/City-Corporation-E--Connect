@@ -18,7 +18,7 @@
                                 <i class="fas fa-user-plus"></i> Apply licence</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{% url 'applylicence' %}" method="POST">
+                            <form action="{% url 'update' licence.id %}" method="POST">
                                 {% csrf_token %}
 
         <body>
@@ -28,11 +28,11 @@
 {#        </div>#}
         <div class="form-group">
             <label for="name">FatherName</label>
-            <input type="text" name="FatherName" id="father" class="form-control" placeholder="FatherName">
+            <input type="text" name="FatherName" id="father" class="form-control" value="{{ licence.FatherName }}" placeholder="FatherName">
         </div>
         <div class="form-group">
             <label for="name">NIDNumber</label>
-            <input type="text" name="NIDNumber" id="nid" class="form-control" placeholder="NIDNumber">
+            <input type="text" name="NIDNumber" id="nid" class="form-control"  value="{{ licence.NIDNumber }}" placeholder="NIDNumber">
         </div>
 {#        <div class="form-group">#}
 {#            <label for="email"> email</label>#}
@@ -42,12 +42,12 @@
             <label for="dropdown"> selectLicence:</label>
 
             <div class="form-group">
-                <select name="type" id="vehicle" class="form-control">
+                <select name="type" id="vehicle"  class="form-control"  value="{{ licence.type }}">
                     <option value="" data-price=""> Select</option>
-                    <option value="1" data-price="500"> BUS</option>
-                    <option value="2" data-price="600"> TRUCK</option>
-                    <option value="3" data-price="300"> AutoRiskhaw</option>
-                     <option value="4" data-price="250"> CnG</option>
+                    <option  data-price="500"> BUS</option>
+                    <option  data-price="600"> TRUCK</option>
+                    <option  data-price="300"> AutoRiskhaw</option>
+                     <option data-price="250"> CnG</option>
 
 
                     <!-- for in key -->
@@ -57,17 +57,17 @@
             </div>
             <div class="form-group">
                 <label for="address"> address</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="address">
+                <input type="text" name="address" id="address" class="form-control" value="{{ licence.address }}" placeholder="address">
             </div>
 
 
             <div class="form-group">
                 <label for="price"> price</label>
-                <input type="text" name="price" id="price" class="form-control" placeholder="price">
+                <input type="text" name="price" id="price" class="form-control" placeholder="price" value="{{ licence.price }}">
             </div>
              <div class="form-group">
                  <label for="ward">select Ward:</label>
-                <select name="ward" id="ward" class="form-control">
+                <select name="ward" id="ward" class="form-control" >
                     <option value="" data-price=""> Select</option>
                     <option value="1" data-price="1"> 1</option>
                     <option value="2" data-price="2"> 2</option>

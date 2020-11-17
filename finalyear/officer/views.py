@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from public.models import ApplyLicence
+from public.views import viewapplylicenece
+
 
 def officerindex(request):
     return  render(request,'officer/officerindex.html')
@@ -15,3 +19,16 @@ def viewproblem(request):
     return render(request,'officer/viewproblem.html')
 def workshop(request):
     return render(request,'officer/workshop.html')
+
+
+def officerviewapplylicenece(request):
+    licence = ApplyLicence.objects.all()
+    context = {
+        'licence':licence,
+    }
+    return render(request,'officer/viewapplylicence.html', context)
+
+def delete(request, id):
+    list = ApplyLicence.objects.get(pk=id)
+    list.delete()
+    return redirect(viewapplylicenece)

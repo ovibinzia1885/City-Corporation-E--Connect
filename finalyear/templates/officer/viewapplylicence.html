@@ -1,0 +1,49 @@
+
+{% load static %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">FatherName</th>
+      <th scope="col">NIDNumber</th>
+      <th scope="col">type</th>
+      <th scope="col">address</th>
+      <th scope="col">price</th>
+      <th scope="col">ward</th>
+      <th scope="col">pyment</th>
+
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for licence in licence %}
+            <tr>
+              <th scope="row">{{ licence.id }}</th>
+              <td>{{ licence.name }}</td>
+              <td>{{ licence.FatherName }}</td>
+              <td>{{ licence.NIDNumber }}</td>
+              <td>{{ licence.type }}</td>
+              <td>{{ licence.address }}</td>
+              <td>{{ licence.price }}</td>
+              <td>{{ licence.ward }}</td>
+              <td>{{ licence.pyment }}</td>
+
+              <td>
+                     <a class="btn btn-danger" href="../delete/{{licence.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
+{% endblock %}

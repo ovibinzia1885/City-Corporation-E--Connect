@@ -7,9 +7,13 @@ urlpatterns = [
     path('addproblem/', views.addproblem, name="addproblem"),
     path('applyapplication/', views.applyapplication, name="applyapplication"),
     path('applylicence/', views.applylicence, name="applylicence"),
+    path('viewapplylicence/', views.viewapplylicenece, name="viewapplylicence"),
     path('onlinebirthcertificate/', views.onlinebirthcertificate, name="onlinebirthcertificate"),
     path('GivenHomeTax/', views.GivenHomeTax, name="GivenHomeTax"),
     path('FeedBack/', views.FeedBack, name="FeedBack"),
+    path('edit/<int:id>/', views.edit, name="edit"),
+    path('update/<int:id>', views.update, name="update"),
+    path('delete/<id>/', views.delete, name='delete'),
 
 
 ]

@@ -1,3 +1,3 @@
 from django.contrib import admin
-
-# Register your models here.
+from public.models import ApplyLicence
+admin.site.register(ApplyLicence)
