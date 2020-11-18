@@ -18,17 +18,21 @@
                         <div class="card-body">
                             <form action="" method="POST">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="name"> Name</label>
-                                    <input type="text" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" required>
+{#                                <div class="form-group">#}
+{#                                    <label for="name"> Name</label>#}
+{#                                    <input type="text" name="name" class="form-control" required>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="email">Email</label>#}
+{#                                    <input type="email" name="email" class="form-control" required>#}
+{#                                </div>#}
+                                 <div class="form-group">
+                                    <label for="name"> FatherName</label>
+                                    <input type="text" name="FatherName"   placeholder="fathername"class="form-control" required>
                                 </div>
                                <div class="form-group">
                                     <label for="ward">WardNo</label>
-                                    <select name="wardno" id="vehicle"   required class="form-control">
+                                    <select name="wardno" id="wardno"   required class="form-control">
                                         <option value=""  >wardno</option>
                                         <option value="1" > 1</option>
                                         <option value="2" >2</option>
@@ -37,11 +41,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control" required>
+                                    <input type="text" name="address" placeholder="masterpara" class="form-control" required>
                                 </div>
+                                  <div class="form-group">
+                                    <label for="NIDNUMBER">NIDNUMBER</label>
+                                    <input type="text" name="NIDNumber" placeholder="NIDNumber" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">HondingNo</label>
+                                    <input type="text" name="HondingNo"  placeholder="wordno 157/1A" class="form-control" required>
+                                </div>
+
                                    <div class="form-group">
                                     <label for="tax">Previous Tax:</label>
-                                    <select name="tax" id="tax"   required class="form-control">
+                                    <select name="PreviousTax" id="tax"   required class="form-control">
                                         <option value=""  >select</option>
                                         <option value="paid" >paid</option>
                                         <option value="due" >due</option>
@@ -49,7 +63,7 @@
                                    </div>
                               <div class="form-group">
                                     <label for="first_name">Select Floor:</label>
-                                    <select name="floor" id="floor"   required class="form-control">
+                                    <select name="SelectFloor" id="floor"   required class="form-control">
                                         <option value=""  >floor</option>
                                         <option value="1" > 1th</option>
                                         <option value="2" >2th</option>
@@ -63,11 +77,11 @@
 
                                 <div class="form-group">
                                     <label for="password">apply owner pic</label>
-                                   <input type="file" id="" name="">
+                                   <input type="file" id="" name="pic">
                                 </div>
                                  <div class="form-group">
                                     <label for="tax">pyment Type:</label>
-                                    <select name="tax" id="tax"   required class="form-control">
+                                    <select name="payment" id="tax"   required class="form-control">
                                         <option value=""  >select</option>
                                         <option value="Bkhas" >Bkhas</option>
                                         <option value="DDB" >DDB</option>

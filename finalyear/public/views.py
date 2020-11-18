@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ApplyLicence
+from .models import ApplyLicence,HomeApplication
 
 def publicindex(request):
     return render(request,'public/publicindex.html')
@@ -7,6 +7,20 @@ def publicindex(request):
 def addproblem(request):
     return render(request,'public/addproblem.html')
 def applyapplication(request):
+    current=request.user
+    if request.method=="POST":
+        FatherName = request.POST['FatherName']
+        wardno = request.POST['wardno']
+        address = request.POST['address']
+        NIDNumber = request.POST['NIDNumber']
+        HondingNo = request.POST['HondingNo']
+        PreviousTax = request.POST['PreviousTax']
+        SelectFloor = request.POST['SelectFloor']
+        pic = request.POST['pic']
+        payment = request.POST['payment']
+        homeapplication=HomeApplication(name=current,FatherName=FatherName,wardno=wardno,address=address,NIDNumber=NIDNumber,HondingNo=HondingNo,PreviousTax=PreviousTax,SelectFloor=SelectFloor,pic=pic,payment=payment)
+        homeapplication.save()
+
     return render(request,'public/applyapplication.html')
 
 
@@ -59,7 +73,6 @@ def update(request,id=None):
             # name = request.POST[' name']
             license.FatherName = request.POST['FatherName']
             license.NIDNumber = request.POST['NIDNumber']
-
             license.type = request.POST['type']
             license.address = request.POST['address']
             license.price = request.POST['price']

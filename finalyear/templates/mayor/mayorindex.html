@@ -1,4 +1,4 @@
-{% extends 'publicbase.html' %}
+{% extends 'mayorbase.html' %}
 {% load static %}
 {% block content %}
  <div class="actions_wrapper">
@@ -18,7 +18,8 @@
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button type="button" class="btn btn-primary">Apply Problem</button>
+                                            <a  type="button"  class="btn btn-primary" href="{% url 'homeviewapplication' %}">application
+                                            </a>
                                         </div>
                                     </div>
 
