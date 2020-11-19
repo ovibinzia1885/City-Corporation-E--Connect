@@ -12,14 +12,40 @@
       <th scope="col">address</th>
       <th scope="col">NIDNumber</th>
       <th scope="col">HondingNo</th>
-      <th scope="col">address</th>
       <th scope="col">PreviousTax</th>
       <th scope="col">SelectFloor</th>
       <th scope="col">Applicate_picture</th>
+      <th scope="col">payment</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
+
+        {% for home in home %}
+            <tr>
+              <th scope="row">{{ home.id }}</th>
+              <td>{{ home.name }}</td>
+              <td>{{ home.FatherName }}</td>
+              <td>{{ home.wardno }}</td>
+              <td>{{ home.address }}</td>
+              <td>{{ home.NIDNumber }}</td>
+              <td>{{ home.HondingNo }}</td>
+              <td>{{ home.PreviousTax }}</td>
+              <td>{{ home.SelectFloor }}</td>
+              <td>{{ home.pic }}</td>
+              <td>{{ home.payment }}</td>
+
+              <td>
+                     <a class="btn btn-danger" href="../delete/{{home.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
   </tbody>
  </table>
 {% endblock %}

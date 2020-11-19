@@ -85,3 +85,4 @@ def delete(request, id):
     list = ApplyLicence.objects.get(pk=id)
     list.delete()
     return redirect(viewapplylicenece)
+
