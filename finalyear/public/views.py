@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ApplyLicence,HomeApplication
+from .models import ApplyLicence,HomeApplication,HomeTax
 
 def publicindex(request):
     return render(request,'public/publicindex.html')
@@ -55,11 +55,25 @@ def onlinebirthcertificate(request):
 
 
 def GivenHomeTax(request):
+    current = request.user
+    if request.method == "POST":
+        ward_no= request.POST['ward_no']
+        HoldingNo = request.POST['HoldingNo']
+        taxyear = request.POST['taxyear']
+        TaxType = request.POST['TaxType']
+        price = request.POST['price']
+        pictureowner = request.POST['pictureowner']
+        payment = request.POST['payment']
+        tax=HomeTax(name=current,ward_no=ward_no,HoldingNo=HoldingNo,taxyear=taxyear,TaxType=TaxType,price=price,pictureowner=pictureowner,payment=payment)
+        tax.save()
+
     return render(request,'public/giventax.html')
 
 
 def FeedBack(request):
     return render(request,'public/feedback.html')
+
+
 def edit(request,id):
     license=ApplyLicence.objects.get(pk=id)
     context={

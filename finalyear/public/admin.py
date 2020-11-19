@@ -1,5 +1,5 @@
 from django.contrib import admin
-from public.models import ApplyLicence,HomeApplication
+from public.models import ApplyLicence,HomeApplication,HomeTax
 
 class ApplyLicenceAdmin(admin.ModelAdmin):
 
@@ -22,3 +22,14 @@ class HomeApplicationAdmin(admin.ModelAdmin):
     list_display_links = ['name']
     search_fields = ['name','NIDNumber','wardno']
 admin.site.register(HomeApplication,HomeApplicationAdmin)
+
+class HomeTaxAdmin(admin.ModelAdmin):
+
+    class Meta:
+        model=HomeTax
+
+    list_display = ['name','ward_no','HoldingNo','pictureowner']
+    list_filter = ['HoldingNo',]
+    list_display_links = ['HoldingNo',]
+    search_fields = ['HoldingNo',]
+admin.site.register(HomeTax,HomeTaxAdmin)

@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
 
 class ApplyLicence(models.Model):
@@ -31,5 +30,24 @@ class HomeApplication(models.Model):
 
     def  __str__(self):
         return str(self.name)
+
+class HomeTax(models.Model):
+    name= models.ForeignKey(User, on_delete=models.CASCADE)
+    ward_no = models.CharField(max_length=100)
+    HoldingNo=models.CharField(max_length=100)
+    taxyear=models.CharField(max_length=100)
+    TaxType=models.CharField(max_length=100)
+    price=models.CharField(max_length=100)
+    pictureowner=models.CharField(max_length=100)
+    payment=models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+
+
+
 
 
