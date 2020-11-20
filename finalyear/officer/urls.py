@@ -15,4 +15,5 @@ urlpatterns = [
     path('delete2/<id>/', views.delete2, name='delete2'),
 
 
+
 ]
