@@ -76,3 +76,14 @@ def login(request):
             return HttpResponseRedirect(reverse('login'))
 
     return render(request,'accounts/login.html')
+
+def solveproblem(request):
+    return render(request,'accounts/solveproblem.html')
+def permissionletter(request):
+    return render(request,'accounts/permiisionletter.html')
+def schoolcollege(request):
+    return render(request,'accounts/schoolcollege.html')
+def notice(request):
+    return render(request,'accounts/notice.html')
+def hotline(request):
+    return render(request,'accounts/hotline.html')

@@ -1,5 +1,46 @@
-{% extends 'base1.html' %}
+{% extends 'officernavbar.html' %}
 {% load static %}
 {% block content %}
-    <h1> i am apply bitrhcertificate</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">PersonalNumber</th>
+      <th scope="col">FatherName</th>
+      <th scope="col">MotherName</th>
+      <th scope="col">BithofDate</th>
+      <th scope="col">PresentAddress</th>
+      <th scope="col">Gender</th>
+      <th scope="col">subdistict</th>
+      <th scope="col">oldpic</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for certificate in certificate %}
+            <tr>
+              <th scope="row">{{ certificate.id }}</th>
+              <td>{{ certificate.name }}</td>
+              <td>{{ certificate.PersonalNumber }}</td>
+              <td>{{ certificate.FatherName }}</td>
+              <td>{{ certificate.MotherName }}</td>
+              <td>{{ certificate.BithofDate }}</td>
+              <td>{{ certificate.PresentAddress }}</td>
+              <td>{{ certificate.Gender }}</td>
+              <td>{{ certificate.subdistict }}</td>
+              <td>{{ certificate.oldpic }}</td>
+
+              <td>
+                     <a class="btn btn-danger" href="../delete1/{{certificate.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
 {% endblock %}

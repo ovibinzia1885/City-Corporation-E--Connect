@@ -1,5 +1,44 @@
-{% extends 'base1.html' %}
+{% extends 'officernavbar.html' %}
 {% load static %}
 {% block content %}
-    <h1> i am apply tax</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">ward_no</th>
+      <th scope="col">HoldingNo</th>
+      <th scope="col">taxyear</th>
+      <th scope="col">TaxType</th>
+      <th scope="col">price</th>
+      <th scope="col">pictureowner</th>
+      <th scope="col">pyment</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for tax in tax %}
+            <tr>
+              <th scope="row">{{ tax.id }}</th>
+              <td>{{ tax.name }}</td>
+              <td>{{ tax.ward_no }}</td>
+              <td>{{ tax.HoldingNo }}</td>
+              <td>{{ tax.taxyear }}</td>
+              <td>{{ tax.TaxType }}</td>
+              <td>{{ tax.price }}</td>
+              <td>{{ tax.pictureowner }}</td>
+              <td>{{ tax.payment }}</td>
+
+              <td>
+                    <a class="btn btn-danger" href="../delete2/{{tax.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
 {% endblock %}

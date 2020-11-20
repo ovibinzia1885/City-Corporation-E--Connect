@@ -11,6 +11,8 @@ urlpatterns = [
     path('workshop/', views.workshop, name="workshop"),
     path('officerviewapplylicenece/', views.officerviewapplylicenece, name="officerviewapplylicenece"),
     path('delete/<id>/', views.delete, name='delete'),
+    path('delete1/<id>/', views.delete1, name='delete1'),
+    path('delete2/<id>/', views.delete2, name='delete2'),
 
 
 ]

@@ -23,6 +23,11 @@ urlpatterns = [
     path('',views.index,name="index"),
     path('registration', views.registration, name="registration"),
     path('login', views.login, name='login'),
+    path('solveproblem/',views.solveproblem,name="solveproblem"),
+    path('permissionletter/',views.permissionletter,name="permissionletter"),
+    path('schoolcollege/',views.schoolcollege,name="schoolcollege"),
+    path('notice/',views.notice,name="notice"),
+    path('hotline/',views.hotline,name="hotline"),
 
 
 ]

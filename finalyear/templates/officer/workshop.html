@@ -1,5 +1,45 @@
 {% extends 'base1.html' %}
 {% load static %}
 {% block content %}
-    <h1> i am apply  workshop</h1>
+   <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="assets/img/homes/home-3.jpg" alt="">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-danger text-white">BDT 580,000</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">187 Woodrow Street</h4>
+                <p>
+                  <i class="fas fa-map-marker text-danger"></i> Salem MA, 01915</p>
+              </div>
+              <hr>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-th-large"></i> Sqft: 3107</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> Garage: 0</div>
+              </div>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-bed"></i> Bedrooms: 4</div>
+                <div class="col-6">
+                  <i class="fas fa-bath"></i> Bathrooms: 3</div>
+              </div>
+              <hr>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-user"></i> Mark Hudson</div>
+              </div>
+              <div class="row text-danger pb-2">
+                <div class="col-6">
+                  <i class="fas fa-clock"></i> 5 days ago</div>
+              </div>
+              <hr>
+              <a href="listing.html" class="btn btn-info btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
 {% endblock %}
