@@ -1,4 +1,5 @@
-{% extends 'publicbase.html' %}
+{% extends 'officernavbar.html' %}
+
 {% load static %}
 {% block content %}
  <div class="actions_wrapper">
@@ -11,14 +12,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i style="color: #4285f4;" class="im im-question"></i>
+                                                <i style="color: #4285f4;" class="im im-magnifier"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                           <a  type="button"  class="btn btn-primary" href="{% url 'officerviewapplylicenece' %}">Apply FeedBack
+                                           <a  type="button"  class="btn btn-primary" href="{% url 'officerviewapplylicenece' %}">ViewApplyLicence
                                             </a>
                                         </div>
                                     </div>
@@ -30,14 +31,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i style="color: #a6c;" class="im im-note-o"></i>
+                                                <i style="color: #a6c;" class="im im-newspaper-o"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button type="button" class="btn btn-secondary">Application Apply</button>
+                                            <a  type="button"  class="btn btn-primary" href="{% url 'workshop' %}">WorkShop
+                                            </a>
                                         </div>
                                     </div>
 
@@ -48,14 +50,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i style="color: #fb3 ;" class="im im-info"></i>
+                                                <i style="color: #fb3 ;" class="im im-note-o"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button type="button" class="btn btn-warning">Recruitement Notice</button>
+                                            <a  type="button"  class="btn btn-primary" href="{% url 'viewcertificate' %}">BIrthCertificateView
+                                            </a>
                                         </div>
                                     </div>
 
@@ -66,15 +69,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i style="color:#ff83d0;" class="im im-graduation-hat"></i>
+                                                <i style="color:#ff83d0;" class="im im-apartment"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button style="background-color: #ff83d0 !important; color: white"
-                                                type="button" class="btn btn-light">School College</button>
+                                            <a  type="button"  class="btn btn-primary" href="{% url 'taxview' %}">ViewHomeTax
+                                            </a>
                                         </div>
                                     </div>
 
@@ -85,14 +88,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i class="im im-phone"></i>
+                                                <i class="im im-task-o"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button type="button" class="btn btn-dark">Hotline</button>
+                                            <a  type="button"  class="btn btn-primary" href="{% url 'Feedback' %}">Feedback
+                                            </a>
                                         </div>
                                     </div>
 
@@ -103,14 +107,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="icon">
-                                                <i style="color: #4285f4;" class="im im-location"></i>
+                                                <i style="color: #4285f4;" class="im im-note-o"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <br />
                                         <div class="col">
-                                            <button type="button" class="btn btn-primary">officer</button>
+                                             <a  type="button"  class="btn btn-primary" href="{% url 'Smsmayor' %}">Smsmayor
+                                            </a>
                                         </div>
                                     </div>
 

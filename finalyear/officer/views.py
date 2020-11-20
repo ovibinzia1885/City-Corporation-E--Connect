@@ -7,7 +7,7 @@ from public.views import viewapplylicenece
 def officerindex(request):
     return  render(request,'officer/officerindex.html')
 
-def councilordetlis(request):
+def Feedback(request):
     return render(request,'officer/councilordetlies.html')
 def taxview(request):
     return render(request,'officer/taxcheek.html')
@@ -19,7 +19,8 @@ def viewproblem(request):
     return render(request,'officer/viewproblem.html')
 def workshop(request):
     return render(request,'officer/workshop.html')
-
+def Smsmayor(request):
+    return render(request,'officer/mayor.html')
 
 def officerviewapplylicenece(request):
     licence = ApplyLicence.objects.all()
