@@ -46,6 +46,26 @@ class HomeTax(models.Model):
 
 
 
+class Onlinebdapply(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    PersonalNumber=models.CharField(max_length=17,unique=True)
+    FatherName = models.CharField(max_length=100)
+    MotherName = models.CharField(max_length=100)
+    BithofDate = models.CharField(max_length=100)
+    PresentAddress = models.CharField(max_length=100)
+    Gender = models.CharField(max_length=100)
+    subdistict = models.CharField(max_length=100)
+    oldpic = models.CharField(max_length=100)
+
+    def  __str__(self):
+        return str(self.name)
+
+
+
+
+
+class Feedback(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 

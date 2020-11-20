@@ -18,43 +18,59 @@
                         <div class="card-body">
                             <form action="" method="POST">
                                 {% csrf_token %}
-
+{#                                <div class="form-group">#}
+{#                                    <label for="email">Email</label>#}
+{#                                    <input type="email" name="email" class="form-control" required>#}
+{#                                </div>#}
                                 <div class="form-group">
-                                    <label for="name"> Name</label>
-                                    <input type="text" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" required>
-                                </div>
-                               <div class="form-group">
-                                    <label for="ward">WardNo</label>
-                                    <select name="wardno" id="vehicle"   required class="form-control">
-                                        <option value=""  >wardno</option>
-                                        <option value="1" > 1</option>
-                                        <option value="2" >2</option>
-                                        <option value="3" >3</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="17-digit-old-number-bd">17-digit-old-number-bd :</label>
-                                    <input type="text" name="digit" class="form-control" required>
+                                    <label for="email">PersonalNumber</label>
+                                    <input type="text" name="PersonalNumber" class="form-control" placeholder="17digitoldnumber" required>
                                 </div>
                                  <div class="form-group">
-                                    <label for="name">BithofDate</label>
-                                    <input type="date" name="bd" class="form-control" required>
+                                    <label for="email">FatherName</label>
+                                    <input type="text" name="FatherName" class="form-control" placeholder="FatherName" required>
                                 </div>
+                                 <div class="form-group">
+                                    <label for="email">MotherName</label>
+                                    <input type="text" name="MotherName" class="form-control" placeholder="MotherName" required>
+                                </div>
+
+{#                               <div class="form-group">#}
+{#                                    <label for="ward">WardNo</label>#}
+{#                                    <select name="wardno" id="vehicle"   required class="form-control">#}
+{#                                        <option value=""  >wardno</option>#}
+{#                                        <option value="1" > 1</option>#}
+{#                                        <option value="2" >2</option>#}
+{#                                        <option value="3" >3</option>#}
+{#                                    </select>#}
+{#                                </div>#}
+                                  <div class="form-group">
+                                    <label for="name">BithofDate</label>
+                                    <input type="date" name="BithofDate" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address"> PresentAddress</label>
+                                    <input type="text" name="PresentAddress" class="form-control" required>
+                                </div>
+                                 <div class="form-group">
+                                     <label for="address"> Gender</label></br>
+                                    <input type="checkbox" id="Gender1" name="Gender" value="male">
+                                        <label for="vehicle1">Male</label><br>
+                                        <input type="checkbox" id="Gender2" name="Gender" value="Female">
+                                        <label for="vehicle2">Female</label><br>
+                                      <input type="checkbox" id="Gender3" name="Gender" value="Others">
+                                        <label for="vehicle2">Others</label><br>
+                                </div>
+
+
                                  <div class="form-group">
                                     <label for="subdistict">subdistict</label>
                                     <input type="text" name="subdistict" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Old-Bd-picture</label>
-                                   <input type="file" id="" name="">
+                                   <input type="file" id="" name="oldpic">
                                 </div>
                                 <input type="submit" value="Submit" class="btn btn-danger btn-block">
                             </form>

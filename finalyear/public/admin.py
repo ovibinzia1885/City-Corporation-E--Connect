@@ -1,5 +1,5 @@
 from django.contrib import admin
-from public.models import ApplyLicence,HomeApplication,HomeTax
+from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply
 
 class ApplyLicenceAdmin(admin.ModelAdmin):
 
@@ -33,3 +33,16 @@ class HomeTaxAdmin(admin.ModelAdmin):
     list_display_links = ['HoldingNo',]
     search_fields = ['HoldingNo',]
 admin.site.register(HomeTax,HomeTaxAdmin)
+
+class onlinebdAdmin(admin.ModelAdmin):
+
+    class Meta:
+        model=Onlinebdapply
+
+    list_display = ['name','PersonalNumber','FatherName','MotherName','BithofDate','PresentAddress','Gender','subdistict']
+    list_filter = ['PersonalNumber',]
+    list_display_links = ['PersonalNumber',]
+    search_fields = ['PersonalNumber',]
+admin.site.register(Onlinebdapply,onlinebdAdmin)
+
+

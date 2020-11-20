@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ApplyLicence,HomeApplication,HomeTax
+from .models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply
 
 def publicindex(request):
     return render(request,'public/publicindex.html')
@@ -51,6 +51,18 @@ def viewapplylicenece(request):
 
 
 def onlinebirthcertificate(request):
+    current=request.user
+    if request.method=="POST":
+        PersonalNumber = request.POST['PersonalNumber']
+        FatherName = request.POST['FatherName']
+        MotherName = request.POST['MotherName']
+        BithofDate = request.POST['BithofDate']
+        PresentAddress = request.POST['PresentAddress']
+        Gender = request.POST['Gender']
+        subdistict = request.POST['subdistict']
+        oldpic = request.POST['oldpic']
+        certificate=Onlinebdapply(name=current,PersonalNumber=PersonalNumber,FatherName=FatherName,MotherName=MotherName,BithofDate=BithofDate,PresentAddress=PresentAddress,Gender=Gender,subdistict=subdistict,oldpic=oldpic)
+        certificate.save()
     return render(request,'public/onlinebirthcertificate.html')
 
 
