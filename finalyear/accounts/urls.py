@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from .import views
+from django.views.static import serve
+from django.conf import settings
 
 
 urlpatterns = [
@@ -28,6 +30,8 @@ urlpatterns = [
     path('schoolcollege/',views.schoolcollege,name="schoolcollege"),
     path('notice/',views.notice,name="notice"),
     path('hotline/',views.hotline,name="hotline"),
+    url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+
 
 
 ]

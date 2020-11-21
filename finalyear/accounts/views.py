@@ -1,13 +1,17 @@
+import os
+
+from django.conf import settings
 from django.shortcuts import render
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
+from mayor.models import FileAdmin
 
 
 
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 
 # Create your views here.
 from userprofile.models import UserRole
@@ -81,7 +85,19 @@ def login(request):
 def solveproblem(request):
     return render(request,'accounts/solveproblem.html')
 def permissionletter(request):
-    return render(request,'accounts/permiisionletter.html')
+    context = {'file': FileAdmin.objects.all()}
+    return render(request,'accounts/permiisionletter.html',context)
+
+def download(request,path):
+	file_path=os.path.join(settings.MEDIA_ROOT,path)
+	if os.path.exists(file_path):
+		with open(file_path,'rb')as fh:
+			response=HttpResponse(fh.read(),content_type="application/adminupload")
+			response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+			return response
+
+	raise Http404
+
 def schoolcollege(request):
     return render(request,'accounts/schoolcollege.html')
 def notice(request):

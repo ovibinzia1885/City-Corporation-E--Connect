@@ -1,10 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<title> permission form all</title>
 </head>
-<body>
+ <table class="table mb-0">
+<thead>
+      <tr>
 
-</body>
+        <th>Title</th>
+        <th>NIDNumber</th>
+        <th>HondingNo</th>
+        <th>wardno</th>
+        <th>Download</th>
+
+      </tr>
+    </thead>
+<body>
+<h2 class="center"> permission form</h2>
+	{% for post in file %}
+  <tr>
+        <td>{{post.title}}</td>
+        <td>{{post.NIDNumber}}</td>
+        <td>{{post.HondingNo}}</td>
+        <td>{{post.wardno}}</td>
+        <td><a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}">Download</a></td>
+  </tr>
+        </body>
+        </table>
 </html>
+
+	{% endfor %}
+
+
+
+
+      </tr>
+    </thead>
+{% endblock %}
+
