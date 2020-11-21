@@ -17,20 +17,18 @@
   </thead>
   <tbody>
 
-        {% for licence in licence %}
+        {% for problem in problem %}
             <tr>
-              <th scope="row">{{ licence.id }}</th>
-              <td>{{ licence.name }}</td>
-              <td>{{ licence.FatherName }}</td>
-              <td>{{ licence.NIDNumber }}</td>
-              <td>{{ licence.type }}</td>
-              <td>{{ licence.address }}</td>
-              <td>{{ licence.price }}</td>
-              <td>{{ licence.ward }}</td>
-              <td>{{ licence.pyment }}</td>
+              <th scope="row">{{ problem.id }}</th>
+              <td>{{ problem.name }}</td>
+              <td>{{ problem.ProblemType }}</td>
+              <td>{{ problem.WardNo }}</td>
+              <td>{{ problem.Address }}</td>
+              <td>{{ problem.Breif }}</td>
+              <td>{{ problem.ProblemPicture }}</td>
 
               <td>
-                     <a class="btn btn-danger" href="../delete/{{licence.id }}" >Delete</a>
+                     <a class="btn btn-danger" href="" >Delete</a>
                     </a>
               </td>
              </tr>

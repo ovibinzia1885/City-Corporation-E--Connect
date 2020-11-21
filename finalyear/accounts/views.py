@@ -8,6 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
+from .models import Others
 
 
 
@@ -104,3 +105,6 @@ def notice(request):
     return render(request,'accounts/notice.html')
 def hotline(request):
     return render(request,'accounts/hotline.html')
+def councilorinfro(request):
+    return render(request,'accounts/councilorinfro.html')
+

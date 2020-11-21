@@ -31,6 +31,7 @@ urlpatterns = [
     path('notice/',views.notice,name="notice"),
     path('hotline/',views.hotline,name="hotline"),
     url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('councilorinfro/',views.councilorinfro,name='councilorinfro'),
 
 
 

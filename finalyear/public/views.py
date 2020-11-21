@@ -17,12 +17,12 @@ def addproblem(request):
         ProblemPicture = request.POST['ProblemPicture']
         problem=Addproblem(name=current,ProblemType=ProblemType,WardNo=WardNo,Address=Address,Breif=Breif,ProblemPicture=ProblemPicture)
         problem.save()
-        if request.user.WardNo == '1':
-            return render(request, 'officer/wardno_1.html')
-        elif request.WardNo == '2':
-            return render(request, 'officer/wardno_2.html')
-        elif request.WardNo == '2':
-            return render(request, 'officer/wardno_3.html')
+        # if WardNo == '1':
+        #     return render(request, 'officer/wardno_1.html')
+        # elif WardNo == '2':
+        #     return render(request, 'officer/wardno_2.html')
+        # elif WardNo == '3':
+        #     return render(request, 'officer/wardno_3.html')
 
     return render(request,'public/addproblem.html')
 def applyapplication(request):

@@ -17,3 +17,5 @@ class Workshop(models.Model):
 
     class Meta:
         ordering = ('-list_date',)
+
+

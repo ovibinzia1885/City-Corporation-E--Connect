@@ -54,7 +54,9 @@ def Smsmayor(request):
 
 def wardno1(request):
 
-    problem=Addproblem.objects.filter(WardNo='1')
+    problem=Addproblem.objects.filter(WardNo=1)
+    print(problem)
+
     context={
         problem:'problem'
     }
