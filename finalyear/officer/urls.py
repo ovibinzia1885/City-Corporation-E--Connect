@@ -16,6 +16,7 @@ urlpatterns = [
     path('wardno1/',views.wardno1,name="wardno1"),
     path('wardno/2',views.wardno2,name="wardno2"),
     path('wardno3/',views.wardno3,name="wardno3"),
+    path('workshop/',views.Workshop,name="workshop"),
 
 
 

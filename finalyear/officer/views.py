@@ -4,7 +4,7 @@ from django.views.generic import ListView
 
 from public.models import ApplyLicence,HomeTax,Onlinebdapply,Addproblem
 from public.views import viewapplylicenece
-
+from officer.models import Workshop
 
 def officerindex(request):
     return  render(request,'officer/officerindex.html')
@@ -43,8 +43,12 @@ def licenceview(request):
 def viewproblem(request):
     return render(request,'officer/viewproblem.html')
 def workshop(request):
+    listing_list=Workshop.objects.all()
+    context={
+        'listing_list':listing_list
+    }
 
-    return render(request,'officer/workshop.html')
+    return render(request,'officer/workshop.html',context)
 def Smsmayor(request):
     return render(request,'officer/mayor.html')
 
