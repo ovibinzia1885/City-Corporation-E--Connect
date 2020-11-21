@@ -1,0 +1,43 @@
+{% extends 'officernavbar.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">ProblemType</th>
+      <th scope="col">WardNo</th>
+      <th scope="col">Address</th>
+      <th scope="col">Breif</th>
+      <th scope="col">ProblemPicture</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for licence in licence %}
+            <tr>
+              <th scope="row">{{ licence.id }}</th>
+              <td>{{ licence.name }}</td>
+              <td>{{ licence.FatherName }}</td>
+              <td>{{ licence.NIDNumber }}</td>
+              <td>{{ licence.type }}</td>
+              <td>{{ licence.address }}</td>
+              <td>{{ licence.price }}</td>
+              <td>{{ licence.ward }}</td>
+              <td>{{ licence.pyment }}</td>
+
+              <td>
+                     <a class="btn btn-danger" href="../delete/{{licence.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
+{% endblock %}

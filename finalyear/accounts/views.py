@@ -26,6 +26,7 @@ def registration(request):
         email = method_dict.get('email')
         password = method_dict.get('password')
         password2 = method_dict.get('password2')
+        # WardNo = method_dict.get('WardNo')
 
         if password == password2:
             if User.objects.filter(username=username).exists():
@@ -40,7 +41,7 @@ def registration(request):
                                              last_name=last_name,
                                              email=email
                                              )
-                    UserRole.objects.create(user=user, role=usertype)
+                    UserRole.objects.create(user=user, role=usertype,)
                     messages.success(request, 'You are successfully registered!')
                     return HttpResponseRedirect(reverse('login'))
         else:
@@ -59,7 +60,7 @@ def login(request):
         username = method_dict.get('username')
         password = method_dict.get('password')
 
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(username=username, password=password,)
 
         if user is not None:
             auth.login(request, user)

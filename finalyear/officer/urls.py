@@ -13,6 +13,9 @@ urlpatterns = [
     path('delete/<id>/', views.delete, name='delete'),
     path('delete1/<id>/', views.delete1, name='delete1'),
     path('delete2/<id>/', views.delete2, name='delete2'),
+    path('wardno1/',views.wardno1,name="wardno1"),
+    path('wardno/2',views.wardno2,name="wardno2"),
+    path('wardno3/',views.wardno3,name="wardno3"),
 
 
 

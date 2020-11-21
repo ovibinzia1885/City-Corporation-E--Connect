@@ -38,7 +38,7 @@ class HomeTax(models.Model):
     taxyear=models.CharField(max_length=100)
     TaxType=models.CharField(max_length=100)
     price=models.CharField(max_length=100)
-    pictureowner=models.CharField(max_length=100)
+    pictureowner=models.ImageField(upload_to='photo')
     payment=models.CharField(max_length=100)
 
     def __str__(self):
@@ -55,7 +55,7 @@ class Onlinebdapply(models.Model):
     PresentAddress = models.CharField(max_length=100)
     Gender = models.CharField(max_length=100)
     subdistict = models.CharField(max_length=100)
-    oldpic = models.CharField(max_length=100)
+    oldpic = models.ImageField(upload_to='photo')
 
     def  __str__(self):
         return str(self.name)
@@ -64,8 +64,18 @@ class Onlinebdapply(models.Model):
 
 
 
-class Feedback(models.Model):
+class Addproblem(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
+    ProblemType=models.CharField(max_length=100)
+    WardNo=models.CharField(max_length=100)
+    Address=models.CharField(max_length=100)
+    Breif=models.CharField(max_length=250)
+    ProblemPicture=models.ImageField(upload_to='photo')
+
+    def  __str__(self):
+        return str(self.name)
+
+
 
 
 

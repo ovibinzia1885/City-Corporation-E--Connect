@@ -1,10 +1,29 @@
 from django.shortcuts import render, redirect
-from .models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply
+from django.contrib import messages, auth
+from django.urls import reverse
+from django.contrib.auth.models import User
+from .models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem
 
 def publicindex(request):
     return render(request,'public/publicindex.html')
 
 def addproblem(request):
+    current=request.user
+    if request.method=="POST":
+        ProblemType = request.POST['ProblemType']
+        WardNo = request.POST['WardNo']
+        Address = request.POST['Address']
+        Breif = request.POST['Breif']
+        ProblemPicture = request.POST['ProblemPicture']
+        problem=Addproblem(name=current,ProblemType=ProblemType,WardNo=WardNo,Address=Address,Breif=Breif,ProblemPicture=ProblemPicture)
+        problem.save()
+        if request.user.WardNo == '1':
+            return render(request, 'officer/wardno_1.html')
+        elif request.WardNo == '2':
+            return render(request, 'officer/wardno_2.html')
+        elif request.WardNo == '2':
+            return render(request, 'officer/wardno_3.html')
+
     return render(request,'public/addproblem.html')
 def applyapplication(request):
     current=request.user

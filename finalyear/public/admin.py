@@ -1,5 +1,5 @@
 from django.contrib import admin
-from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply
+from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem
 
 class ApplyLicenceAdmin(admin.ModelAdmin):
 
@@ -44,5 +44,16 @@ class onlinebdAdmin(admin.ModelAdmin):
     list_display_links = ['PersonalNumber',]
     search_fields = ['PersonalNumber',]
 admin.site.register(Onlinebdapply,onlinebdAdmin)
+
+class AddproblemAdmin(admin.ModelAdmin):
+
+    class Meta:
+        model=Addproblem
+
+    list_display = ['name','ProblemType','WardNo','Address','ProblemPicture']
+    list_filter = ['ProblemType',]
+    list_display_links = ['ProblemPicture',]
+    search_fields = ['ProblemType',]
+admin.site.register(Addproblem,AddproblemAdmin)
 
 
