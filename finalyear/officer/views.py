@@ -1,22 +1,29 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 
-from public.models import ApplyLicence,HomeTax,Onlinebdapply,Addproblem
+from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem
 from public.views import viewapplylicenece
 from officer.models import Workshop
 
+
 def officerindex(request):
-    return  render(request,'officer/officerindex.html')
+    return render(request, 'officer/officerindex.html')
+
 
 def Feedback(request):
-    return render(request,'officer/councilordetlies.html')
+    return render(request, 'officer/councilordetlies.html')
+
+
 def taxview(request):
-    tax=HomeTax.objects.all()
-    contex={
-        'tax':tax
+    tax = HomeTax.objects.all()
+    contex = {
+        'tax': tax
     }
-    return render(request,'officer/taxcheek.html',contex)
+    return render(request, 'officer/taxcheek.html', contex)
+
 
 def viewcertificate(request):
     listing_list = Onlinebdapply.objects.all()
@@ -38,33 +45,43 @@ def viewcertificate(request):
     }
     return render(request, 'officer/viewbirthcertificate.html', context)
 
+
 def licenceview(request):
-    return render(request,'officer/viewlicencen.html')
+    return render(request, 'officer/viewlicencen.html')
+
+
 def viewproblem(request):
-    return render(request,'officer/viewproblem.html')
+    return render(request, 'officer/viewproblem.html')
+
+
 def workshop(request):
-    listing_list=Workshop.objects.all()
-    context={
-        'listing_list':listing_list
+    listing_list = Workshop.objects.all()
+    context = {
+        'listing_list': listing_list
     }
 
-    return render(request,'officer/workshop.html',context)
+    return render(request, 'officer/workshop.html', context)
+
+
 def Smsmayor(request):
-    return render(request,'officer/mayor.html')
+    return render(request, 'officer/mayor.html')
+
 
 def wardno1(request):
+    problems= Addproblem.objects.all().filter(WardNo='1')
 
-    problem=Addproblem.objects.filter(WardNo=1)
-    print(problem)
-
-    context={
-        problem:'problem'
+    context = {
+        'problems': problems
     }
-    return render(request,'officer/wardno_1.html',context)
+    return render(request, 'officer/wardno_1.html', context)
+
+
 def wardno2(request):
-    return render(request,'officer/wardno_2.html')
+    return render(request, 'officer/wardno_2.html')
+
+
 def wardno3(request):
-    return render(request,'officer/wardno_3.html')
+    return render(request, 'officer/wardno_3.html')
 
 
 def officerviewapplylicenece(request):
@@ -79,7 +96,7 @@ def officerviewapplylicenece(request):
     except EmptyPage:
         licence = paginator.page(paginator.num_pages)
 
-    return render(request, 'officer/viewapplylicence.html', { 'licence': licence })
+    return render(request, 'officer/viewapplylicence.html', {'licence': licence})
 
 
 def delete(request, id):
@@ -87,12 +104,30 @@ def delete(request, id):
     list.delete()
     return redirect(viewapplylicenece)
 
+
 def delete1(request, id):
     list = Onlinebdapply.objects.get(pk=id)
     list.delete()
     return redirect(viewcertificate)
 
+
 def delete2(request, id):
     list = HomeTax.objects.get(pk=id)
     list.delete()
     return redirect(taxview)
+
+
+def send_email_officer(request):
+    listing_list = Workshop.objects.all()
+    context = {
+        'listing_list': listing_list
+    }
+
+    send_mail(
+        'welcome to enrol ',
+        'Thank you for contacting us. We Will contact you soon. DJRE Team.',
+        settings.EMAIL_HOST_USER,
+        [request.user.email, settings.EMAIL_HOST_USER],
+        fail_silently=False,
+    )
+    return render(request, 'officer/workshop.html',context)

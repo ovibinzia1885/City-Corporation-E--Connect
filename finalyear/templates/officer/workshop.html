@@ -1,37 +1,50 @@
 {% extends 'officernavbar.html' %}
 {% load static %}
 {% block content %}
-   <div class="container">
-      <div class="row">
 
-          {% for listing in listing_list %}
-        <!-- Listing 1 -->
-        <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-4 mb-4">
           <div class="card listing-preview">
-            <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+              {% for list in listing_list %}
+            <img class="card-img-top" src="{{ list.photo_main.url }}" alt="">
             <div class="card-img-overlay">
               <h2>
-                <span class="badge badge-danger text-white">{{listing.type}}</span>
+                <span class="badge badge-danger text-white">{{ list.type }}</span>
               </h2>
             </div>
             <div class="card-body">
               <div class="listing-heading text-center">
-                <h4 class="text-primary">{{listing.tittle}}</h4>
-                <p>
-                  <i class="fas fa-map-marker text-danger"></i> {{listing.duriation}}</p>
+                <h4 class="text-primary">{{ list.tittle }}</h4>
+                  <br/>
+{#                <p>#}
+{#                  <i class="fas fa-map-marker text-danger"></i> Salem MA, 01915</p>#}
+              </div>
+              <hr>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-th-large"></i> perclass: {{ list.perclass }}</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> startclass: {{ list.startclass }}</div>
               </div>
               <div class="row py-2 text-danger">
                 <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft:{{listing.perclass}}</div>
-              <div class="row py-2 text-danger">
-              <div class="row text-danger pb-2">
+                  <i class="fas fa-bed"></i> Endclasstclass: {{ list.Endclasstclass }}</div>
                 <div class="col-6">
-                  <i class="fas fa-clock"></i>{{listing.startclass}} startclass</div>
+                  <i class="fas fa-bath"></i> Duration: {{ list.duriation }}</div>
               </div>
-              <a href="" class="btn btn-info btn-block">Enroll</a>
+                {% endfor %}
+{#              <div class="row py-2 text-danger">#}
+{#                <div class="col-6">#}
+{#                  <i class="fas fa-user"></i> Mark Hudson</div>#}
+{#              </div>#}
+{#              <div class="row text-danger pb-2">#}
+{#                <div class="col-6">#}
+{#                  <i class="fas fa-clock"></i> 5 days ago</div>#}
+{#              </div>#}
+              <hr>
+              <a href="{% url 'send_email_officer' %}" class="btn btn-info btn-block">EnorllMe</a>
             </div>
           </div>
-        </div>{% endfor %}
-          </div>
-          </div>
+        </div>
+
+
  {% endblock %}
