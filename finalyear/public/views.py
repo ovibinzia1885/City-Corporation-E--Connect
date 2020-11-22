@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.urls import reverse
@@ -184,3 +185,10 @@ def deshbord(request):
         print(taxyear1)
 
     return render(request, 'public/deshbord.html', {'counterproblem': counterproblem, 'counterapplication': counterapplication, 'license': license, 'bdcertificateapply': bdcertificateapply, 'taxyear1': taxyear1, 'licencecost': licencecost, 'totaltax': totaltax})
+
+
+def logout(request):
+	if request.method == "POST":
+		auth.logout(request)
+		# messages.success(request, 'You are now logged out')
+	return HttpResponseRedirect(reverse('index'))
