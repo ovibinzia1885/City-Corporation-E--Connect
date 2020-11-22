@@ -7,6 +7,12 @@
 	<title> permission form all</title>
 </head>
  <table class="table mb-0">
+     <form action="{% url 'search' %}" method="post">
+         {% csrf_token %}
+         <tr><input name="NIDNumber"></tr>
+        <tr><button type="submit">Search</button></tr>
+      </td>
+     </form>
 <thead>
       <tr>
 
@@ -19,6 +25,8 @@
       </tr>
     </thead>
 <body>
+ <td>
+
 <h2 class="center"> permission form</h2>
 	{% for post in file %}
   <tr>
