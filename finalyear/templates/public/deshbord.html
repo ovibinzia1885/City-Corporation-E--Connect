@@ -1,0 +1,41 @@
+{% extends 'publicnav1.html' %}
+{% load static %}
+{% block content %}
+    </br>
+    </br>
+    </br>
+    </br>
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Apply problem</th>
+      <th scope="col">HOmeapplication</th>
+      <th scope="col">Apply licence</th>
+      <th scope="col">Bithcertificate</th>
+      <th scope="col"> hometaxyear</th>
+      <th scope="col">TotalLicen cost</th>
+      <th scope="col">Homeapplication Cost</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+            <tr>
+              <td>
+                      {{ counterproblem }}
+
+              </td>
+              <td>
+                  {{counterapplication }}
+              </td>
+              <td>{{ license }}</td>
+              <td>{{ bdcertificateapply }}</td>
+              <td>{{ taxyear1 }}</td>
+              <td>{{ licencecost }}</td>
+                <td>{{ totaltax }}</td>
+
+             </tr>
+
+  </tbody>
+   </table>
+{% endblock %}

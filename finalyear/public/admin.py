@@ -6,7 +6,7 @@ class ApplyLicenceAdmin(admin.ModelAdmin):
     class Meta:
         model=ApplyLicence
 
-    list_display = ['name','FatherName','NIDNumber','ward','type']
+    list_display = ['name','FatherName','NIDNumber','ward','type','price',]
     list_filter = ['NIDNumber']
     list_display_links = ['ward']
     search_fields = ['name','NIDNumber','ward','type']
