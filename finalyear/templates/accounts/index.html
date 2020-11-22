@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+     <form action="{% url 'index' %}" method="post">
+     {% csrf_token %}
  <div class="actions_wrapper">
             <div class="row">
                 <div class="col-9">
@@ -126,7 +128,8 @@
                 <div class="col-3">
                     <div class="mayor_photo">
                         <div class="_photo">
-                            <img src="" alt="Sonagazi Mator">
+                            {% for others in other %}
+                            <img src="{{ others.photo_ceo.url }}" alt="Sonagazi Mator">
                         </div>
                         <div class="desc">
                             <h2>Nazmul Haque Ovy</h2>
@@ -135,12 +138,16 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer diam turpis,
                                 sollicitudin ac convallis eu, rhoncus non lacus. In eget diam magna.</p>
                         </div>
+                        {% endfor %}
                     </div>
                     <div class="sample_video">
                         <video width="100%" height="240" controls>
+                            <source src=" static/videoplayback.mp4" type="video/mp4">
+
                         </video>
                     </div>
                 </div>
             </div>
         </div>
+     </form>
 {% endblock %}

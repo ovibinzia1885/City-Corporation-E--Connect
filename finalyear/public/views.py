@@ -3,11 +3,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
+
+from accounts.models import Others
 from .models import ApplyLicence, HomeApplication, HomeTax, Onlinebdapply, Addproblem
 
 
 def publicindex(request):
-    return render(request, 'public/publicindex.html')
+    obj = Others.objects.all()
+    print(6)
+    return render(request, 'public/publicindex.html', {'other': obj})
 
 
 def addproblem(request):

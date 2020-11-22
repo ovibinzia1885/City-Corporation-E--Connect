@@ -1,4 +1,6 @@
  <!-- SLIDER -->
+ <form action="{% url 'index' %}" method="post">
+     {% csrf_token %}
         <div class="__slider_wrap">
             <div class="row">
                 <div class="col-9">
@@ -16,12 +18,15 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
+                                 {% for others in other %}
                                     <div class="view">
                                         <img class="d-block w-100"
-                                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                                            alt="First slide">
+                                            src=" {{ others.photo_slider1.url }}"
+{#                                            src=" https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"#}
+                                            alt="First slide" height="600" width="200">
                                         <div class="mask rgba-black-light"></div>
                                     </div>
+{#                                    {% endfor %}#}
                                     <div class="carousel-caption">
                                         <h3 class="h3-responsive">Light mask</h3>
                                         <p>First text</p>
@@ -31,7 +36,8 @@
                                     <!--Mask color-->
                                     <div class="view">
                                         <img class="d-block w-100"
-                                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                                            src="{{ others.photo_slider2.url }}"
+{#                                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"#}
                                             alt="Second slide">
                                         <div class="mask rgba-black-strong"></div>
                                     </div>
@@ -70,14 +76,16 @@
                     </div>
                     <div class="marque">
                         <marquee width="100%" direction="left" height="50px">
-                            vi Nazmul Haque.
+{#                            {% for others in other %}#}
+                                {{ others.marque }}
+
                         </marquee>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="mayor_photo">
                         <div class="_photo">
-                            <img src="images/ovi.jpg" alt="Sonagazi Mator">
+                            <img src="{{ others.photo_mayor.url }}" alt="Sonagazi Mator">
                         </div>
                         <div class="desc">
                             <h2>Nazmul Haque Ovy</h2>
@@ -86,7 +94,9 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer diam turpis,
                                 sollicitudin ac convallis eu, rhoncus non lacus. In eget diam magna.</p>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
+     </form>

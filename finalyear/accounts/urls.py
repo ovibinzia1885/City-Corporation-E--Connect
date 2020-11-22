@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('councilorinfro/',views.councilorinfro,name='councilorinfro'),
     path('search', views.search, name="search"),
+    path('other/',views.others,name="other"),
 
 
 

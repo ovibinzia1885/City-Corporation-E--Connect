@@ -17,8 +17,11 @@ from userprofile.models import UserRole
 
 
 def index(request):
-    return render(request, 'accounts/index.html')
+    print(5)
+    obj = Others.objects.all()
+    print(5)
 
+    return render(request, 'accounts/index.html', {'other': obj})
 
 def registration(request):
     if request.method == "POST":
@@ -126,3 +129,14 @@ def search(request):
     print(givenname)
     student = FileAdmin.objects.all().filter(NIDNumber=givenname)
     return render(request, 'accounts/permiisionletter.html', {'file': student})
+
+
+def others(request):
+    # other = Others.objects.all()
+    print(5)
+    field_name = 'photo_mayor'
+    obj = Others.objects.first()
+    field_value = getattr(obj, field_name)
+    print(5)
+
+    return render(request, 'partials/slider.html', {'other': field_value})
