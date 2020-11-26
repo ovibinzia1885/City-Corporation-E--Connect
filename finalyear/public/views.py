@@ -118,6 +118,12 @@ def GivenHomeTax(request):
 
 
 def FeedBack(request):
+    current=request.user
+    if request.method=="POST":
+        serviceType = request.POST['serviceType']
+        des1  =   request.POST['des1']
+        addfeedback=FeedBack(name=current,serviceType=serviceType,des1=des1)
+        addfeedback.save()
     return render(request, 'public/feedback.html')
 
 

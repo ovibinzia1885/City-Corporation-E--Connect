@@ -75,6 +75,13 @@ class Addproblem(models.Model):
     def  __str__(self):
         return str(self.name)
 
+class Feedback(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    serviceType=models.CharField(max_length=250)
+    des1=models.CharField(max_length=250,verbose_name="description")
+
+    def  __str__(self):
+        return self.serviceType
 
 
 

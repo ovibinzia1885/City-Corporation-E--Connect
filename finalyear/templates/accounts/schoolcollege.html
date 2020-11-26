@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-</body>
-</html>
+    <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            {% for list in listing_list %}
+            <img class="card-img-top" src="{{ list.photo_main.url }}" alt="">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-danger text-white">{{ list.list }}</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary"></h4>
+                  <br/>
+{#                <p>#}
+{#                  <i class="fas fa-map-marker text-danger"></i> Salem MA, 01915</p>#}
+              </div>
+              <hr>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-th-large"></i>Name:{{ list.name }}</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> Total-Student:{{ list.total_student }}</div>
+              </div>
+              <div class="row py-2 text-danger">
+                <div class="col-6">
+                  <i class="fas fa-bed"></i>Total-teacher:{{ list.total_teacher }} </div>
+                <div class="col-6">
+                  <i class="fas fa-bath"></i>Location:</div>
+              </div>
+
+{#              <div class="row py-2 text-danger">#}
+{#                <div class="col-6">#}
+{#                  <i class="fas fa-user"></i> Mark Hudson</div>#}
+{#              </div>#}
+{#              <div class="row text-danger pb-2">#}
+{#                <div class="col-6">#}
+{#                  <i class="fas fa-clock"></i> 5 days ago</div>#}
+{#              </div>#}
+              <hr>
+              <a href="https://www.alhelalacademy.edu.bd/" class="btn btn-info btn-block">EnorllMe</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+ {% endblock %}

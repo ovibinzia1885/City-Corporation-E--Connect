@@ -1,5 +1,5 @@
 from django.contrib import admin
-from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem
+from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem,Feedback
 
 class ApplyLicenceAdmin(admin.ModelAdmin):
 
@@ -57,3 +57,8 @@ class AddproblemAdmin(admin.ModelAdmin):
 admin.site.register(Addproblem,AddproblemAdmin)
 
 
+class FeedbackAdmin(admin.ModelAdmin):
+    model=Feedback
+
+    list_display = ['name','serviceType','des1',]
+admin.site.register(Feedback,FeedbackAdmin)

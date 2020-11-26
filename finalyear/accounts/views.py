@@ -8,7 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from .models import Others
+from .models import Others,School
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 
@@ -107,7 +107,11 @@ def download(request, path):
 
 
 def schoolcollege(request):
-    return render(request, 'accounts/schoolcollege.html')
+    listing_list = School.objects.all()
+    context = {
+        'listing_list': listing_list
+    }
+    return render(request, 'accounts/schoolcollege.html',context)
 
 
 def notice(request):
