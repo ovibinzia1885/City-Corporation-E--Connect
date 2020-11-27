@@ -29,3 +29,21 @@ class School(models.Model):
 
     def  __str__(self):
         return self.name
+class FamousPlace(models.Model):
+    photo_main = models.ImageField(upload_to='photos/%y/%m/%d')
+    placename=models.CharField(max_length=250)
+    location=models.CharField(max_length=250)
+    enviroment=models.CharField(max_length=250)
+    closeday=models.CharField(max_length=250)
+
+    def  __str__(self):
+        return self.placename
+class hotline(models.Model):
+    THana=models.CharField(max_length=100)
+    GovtHOspital=models.CharField(max_length=100)
+    Firerservice=models.CharField(max_length=100)
+    Bus_counter=models.CharField(max_length=100)
+    Train_counter=models.CharField(max_length=100)
+
+    def  __str__(self):
+        return self.Bus_counter

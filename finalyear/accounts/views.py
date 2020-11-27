@@ -8,7 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from .models import Others,School
+from .models import Others,School,FamousPlace,hotline
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 
@@ -118,8 +118,13 @@ def notice(request):
     return render(request, 'accounts/notice.html')
 
 
-def hotline(request):
-    return render(request, 'accounts/hotline.html')
+def number(request):
+
+    list=hotline.objects.all()
+    context={
+        'list':list
+    }
+    return render(request, 'accounts/hotline.html',context)
 
 
 def councilorinfro(request):
@@ -144,3 +149,10 @@ def others(request):
     print(5)
 
     return render(request, 'partials/slider.html', {'other': field_value})
+
+def famousplace(request):
+    place_list = FamousPlace.objects.all()
+    context = {
+        'place_list': place_list
+    }
+    return render(request,'accounts/famousplace.html',context)

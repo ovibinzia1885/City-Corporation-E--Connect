@@ -29,11 +29,12 @@ urlpatterns = [
     path('permissionletter/',views.permissionletter,name="permissionletter"),
     path('schoolcollege/',views.schoolcollege,name="schoolcollege"),
     path('notice/',views.notice,name="notice"),
-    path('hotline/',views.hotline,name="hotline"),
+    path('number/',views.number,name="number"),
     url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('councilorinfro/',views.councilorinfro,name='councilorinfro'),
     path('search', views.search, name="search"),
     path('other/',views.others,name="other"),
+    path('place/',views.famousplace,name="place"),
 
 
 

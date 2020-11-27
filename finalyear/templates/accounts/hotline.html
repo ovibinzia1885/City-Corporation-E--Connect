@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-</body>
-</html>
+    <tr>
+     <tr>
+
+        <th>#</th>
+        <th>THana</th>
+        <th>GovtHOspital</th>
+        <th>Firerservice</th>
+        <th>Bus-counter</th>
+        <th>Train-counter</th>
+     </tr>
+    </br>
+
+      <tr>
+        {% for list in list %}
+       <td>{{list.THana}}</td>
+       <td>{{list.GovtHOspital}}</td>
+       <td>{{list.Firerservice}}</td>
+       <td>{{list.Bus_counter}}</td>
+       <td>{{list.Train_counter}}</td>
+            </tr>
+
+    </tabel>
+    {% endfor %}
+{% endblock %}
