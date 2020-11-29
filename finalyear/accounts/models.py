@@ -47,3 +47,15 @@ class hotline(models.Model):
 
     def  __str__(self):
         return self.Bus_counter
+
+
+class recentlysolveproblem(models.Model):
+    title=models.CharField(max_length=250)
+    photo_main = models.ImageField(upload_to='photos/%y/%m/%d')
+    applicatename=models.CharField(max_length=250)
+    wardno=models.CharField(max_length=20)
+    type=models.CharField(max_length=250)
+    location=models.CharField(max_length=250)
+
+    def  __str__(self):
+        return self.title

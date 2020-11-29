@@ -8,7 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from .models import Others,School,FamousPlace,hotline
+from .models import Others,School,FamousPlace,hotline,recentlysolveproblem
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 
@@ -87,7 +87,11 @@ def login(request):
 
 
 def solveproblem(request):
-    return render(request, 'accounts/solveproblem.html')
+    solvelist = recentlysolveproblem.objects.all()
+    context = {
+        'solvelist': solvelist
+    }
+    return render(request, 'accounts/solveproblem.html',context)
 
 
 def permissionletter(request):
@@ -156,3 +160,6 @@ def famousplace(request):
         'place_list': place_list
     }
     return render(request,'accounts/famousplace.html',context)
+
+
+
