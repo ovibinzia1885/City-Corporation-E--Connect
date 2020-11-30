@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Workshop
+from .models import Workshop,uploadbudget
 
 
 class workshopAdmin(admin.ModelAdmin):
@@ -9,3 +9,5 @@ class workshopAdmin(admin.ModelAdmin):
     list_display_links = ['tittle',]
     search_fields = ['tittle',]
 admin.site.register(Workshop,workshopAdmin)
+
+admin.site.register(uploadbudget)

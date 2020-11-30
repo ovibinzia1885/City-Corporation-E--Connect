@@ -1,16 +1,18 @@
 import os
 
 from django.conf import settings
-from django.shortcuts import render
-from django.contrib import messages, auth
-from django.contrib.auth.models import User
+from django.template.loader import get_template
+from django.views.generic import ListView
+from xhtml2pdf import pisa
 from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
+from officer.models import uploadbudget
 from .models import Others,School,FamousPlace,hotline,recentlysolveproblem
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from userprofile.models import UserRole
@@ -162,4 +164,30 @@ def famousplace(request):
     return render(request,'accounts/famousplace.html',context)
 
 
+class PublicListView(ListView):
+    model = uploadbudget
+    template_name = 'accounts/uploadbudget.html'
+
+
+def public_render_pdf_view(request,*args,**kwargs):
+    pk=kwargs.get('pk')
+    public=get_object_or_404(uploadbudget,pk=pk)
+
+    template_path = 'accounts/pdf2.html'
+
+    context = {'public': public}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 

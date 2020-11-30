@@ -19,6 +19,7 @@ from django.urls import path
 from .import views
 from django.views.static import serve
 from django.conf import settings
+from .views import PublicListView,public_render_pdf_view
 
 
 urlpatterns = [
@@ -35,6 +36,8 @@ urlpatterns = [
     path('search', views.search, name="search"),
     path('other/',views.others,name="other"),
     path('place/',views.famousplace,name="place"),
+    path('PublicListView/',PublicListView.as_view(),name='PublicListView'),
+    path('pdf/<pk>/',public_render_pdf_view,name="public_render_pdf_view"),
 
 
 

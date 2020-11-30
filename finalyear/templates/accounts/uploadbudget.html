@@ -1,0 +1,16 @@
+{#{% extends 'base.html' %}#}
+{% load static %}
+{% block title %}
+    public
+{% endblock title %}
+{% block content %}
+    {% for public in object_list %}
+        {{ public }}
+        <br>
+
+        <a href="{% url 'public_render_pdf_view' public.pk %}"> <button class="btn-btn-primary">pdf</button></a>
+        <br/>
+
+        <hr>
+    {% endfor %}
+{% endblock content %}

@@ -19,4 +19,12 @@ class Workshop(models.Model):
     class Meta:
         ordering = ('-list_date',)
 
+class uploadbudget(models.Model):
+    tittle=models.CharField(max_length=250)
+    description=models.CharField(max_length=1000)
+    photo=models.ImageField(upload_to='photo')
+
+    def  __str__(self):
+        return self.tittle
+
 
