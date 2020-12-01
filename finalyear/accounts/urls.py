@@ -38,6 +38,8 @@ urlpatterns = [
     path('place/',views.famousplace,name="place"),
     path('PublicListView/',PublicListView.as_view(),name='PublicListView'),
     path('pdf/<pk>/',public_render_pdf_view,name="public_render_pdf_view"),
+    path('licencepermissionletter/',views.licencepermissionletter,name='licencepermissionletter'),
+    url(r'^download1/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
 
 

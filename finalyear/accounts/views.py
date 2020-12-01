@@ -8,7 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from officer.models import uploadbudget
+from officer.models import uploadbudget,FileAdmin
 from .models import Others,School,FamousPlace,hotline,recentlysolveproblem
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
@@ -191,3 +191,19 @@ def public_render_pdf_view(request,*args,**kwargs):
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
+
+
+def licencepermissionletter(request):
+    context = {'list': FileAdmin.objects.all()}
+    return render(request, 'accounts/licencepermiisionletter.html',context)
+
+
+def download1(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb')as fh:
+            response = HttpResponse(fh.read(), content_type="application/adminupload")
+            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            return response
+
+    raise Http404

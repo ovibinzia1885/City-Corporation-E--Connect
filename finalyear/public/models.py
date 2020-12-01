@@ -75,16 +75,16 @@ class Addproblem(models.Model):
     def  __str__(self):
         return str(self.name)
 
-class Feedback(models.Model):
+
+
+class publicfeedback(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
-    serviceType=models.CharField(max_length=250)
-    des1=models.CharField(max_length=250,verbose_name="description")
+    throwby=models.CharField(max_length=250)
+    throwby=models.CharField(max_length=250)
+    description=models.CharField(max_length=250)
 
     def  __str__(self):
-        return self.serviceType
-
-
-
+        return str(self.name)
 
 
 

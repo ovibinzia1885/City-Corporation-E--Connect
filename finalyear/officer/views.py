@@ -4,16 +4,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 
-from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem
+from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem,publicfeedback
 from public.views import viewapplylicenece
 from officer.models import Workshop
+from accounts.models import Others
 
 
 def officerindex(request):
-    return render(request, 'officer/officerindex.html')
+    obj = Others.objects.all()
+
+    return render(request, 'officer/officerindex.html',{'other': obj})
 
 
 def Feedback(request):
+
     return render(request, 'officer/councilordetlies.html')
 
 

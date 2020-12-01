@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+ <table class="table mb-0">
+{#     <form action="{% url 'search' %}" method="post">#}
+{#         {% csrf_token %}#}
+{#         <tr><input name="NIDNumber"></tr>#}
+{#        <tr><button type="submit">Search</button></tr>#}
+{#      </td>#}
+{#     </form>#}
+<thead>
+      <tr>
+
+        <th>Title</th>
+        <th>FatherName</th>
+        <th>NIDNumber</th>
+        <th>type</th>
+        <th>address</th>
+        <th>Download</th>
+
+      </tr>
+    </thead>
+<body>
+    <h2 class="center"> permission form</h2>
+	{% for post in list %}
+  <tr>
+        <td>{{post.title}}</td>
+        <td>{{post.FatherName}}</td>
+        <td>{{post.NIDNumber}}</td>
+        <td>{{post.type}}</td>
+        <td>{{post.address}}</td>
+        <td><a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}">Download</a></td>
+  </tr>
+        </body>
+        </table>
+</html>
+
+	{% endfor %}
+
+
+
+
+      </tr>
+ <td>
+
+
+
+{% endblock %}
+
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem,Feedback
+from public.models import ApplyLicence,HomeApplication,HomeTax,Onlinebdapply,Addproblem,publicfeedback
 
 class ApplyLicenceAdmin(admin.ModelAdmin):
 
@@ -55,10 +55,4 @@ class AddproblemAdmin(admin.ModelAdmin):
     list_display_links = ['ProblemPicture',]
     search_fields = ['ProblemType',]
 admin.site.register(Addproblem,AddproblemAdmin)
-
-
-class FeedbackAdmin(admin.ModelAdmin):
-    model=Feedback
-
-    list_display = ['name','serviceType','des1',]
-admin.site.register(Feedback,FeedbackAdmin)
+admin.site.register(publicfeedback)

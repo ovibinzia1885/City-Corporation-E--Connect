@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Workshop,uploadbudget
+from .models import Workshop,uploadbudget,FileAdmin
 
 
 class workshopAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class workshopAdmin(admin.ModelAdmin):
 admin.site.register(Workshop,workshopAdmin)
 
 admin.site.register(uploadbudget)
+admin.site.register(FileAdmin)

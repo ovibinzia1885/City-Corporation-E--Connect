@@ -5,12 +5,12 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 from accounts.models import Others
-from .models import ApplyLicence, HomeApplication, HomeTax, Onlinebdapply, Addproblem
+from .models import ApplyLicence, HomeApplication, HomeTax, Onlinebdapply, Addproblem,publicfeedback
 
 
 def publicindex(request):
     obj = Others.objects.all()
-    print(6)
+    # print(6)
     return render(request, 'public/publicindex.html', {'other': obj})
 
 
@@ -117,20 +117,22 @@ def GivenHomeTax(request):
     return render(request, 'public/giventax.html')
 
 
-def FeedBack(request):
+def sentfeedback(request):
     current=request.user
     if request.method=="POST":
-        serviceType = request.POST['serviceType']
-        des1  =   request.POST['des1']
-        addfeedback=FeedBack(name=current,serviceType=serviceType,des1=des1)
-        addfeedback.save()
+        throwby=request.POST['throwby']
+        problemtype=request.POST['problemtype']
+        description=request.POST['description']
+        result=publicfeedback(name=current,throwby=throwby,problemtype=problemtype,description=description)
+        result.save()
+
     return render(request, 'public/feedback.html')
 
 
 def edit(request, id):
     license = ApplyLicence.objects.get(pk=id)
     context = {
-        'licence': license
+        'license': license
     }
     return render(request, 'public/editlicence.html', context)
 
