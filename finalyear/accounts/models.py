@@ -59,3 +59,13 @@ class recentlysolveproblem(models.Model):
 
     def  __str__(self):
         return self.title
+
+class councilorinfromation(models.Model):
+    photo_main = models.ImageField(upload_to='photos/%y/%m/%d')
+    name=models.CharField(max_length=250)
+    email=models.EmailField(unique=True)
+    wardno=models.CharField(max_length=20)
+    phonnumber=models.CharField(max_length=250)
+
+    def  __str__(self):
+        return str(self.name)

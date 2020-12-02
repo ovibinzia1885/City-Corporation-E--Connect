@@ -18,10 +18,8 @@
 
 
         <th>#</th>
-        <th>FatherName</th>
-        <th>NIDNumber</th>
-        <th>type</th>
-        <th>address</th>
+        <th>PersonalNumber</th>
+        <th>BithofDate</th>
         <th>Download</th>
 
       </tr>
@@ -31,25 +29,15 @@
 	{% for post in list %}
   <tr>
         <td>{{post.title}}</td>
-        <td>{{post.FatherName}}</td>
-        <td>{{post.NIDNumber}}</td>
-        <td>{{post.type}}</td>
-        <td>{{post.address}}</td>
-        <td><a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}">Download</a></td>
+        <td>{{post.PersonalNumber}}</td>
+        <td>{{post.BithofDate}}</td>
+        <td><a href="{{post.document.url}}" download="{{post.document.url}}">Download</a></td>
   </tr>
         </body>
         </table>
 </html>
 
 	{% endfor %}
-
-
-
-
-      </tr>
- <td>
-
-
 
 {% endblock %}
 

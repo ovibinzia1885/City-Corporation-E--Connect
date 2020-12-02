@@ -8,8 +8,8 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from officer.models import uploadbudget,FileAdmin
-from .models import Others,School,FamousPlace,hotline,recentlysolveproblem
+from officer.models import uploadbudget,FileAdmin,OnlineBd
+from .models import Others,School,FamousPlace,hotline,recentlysolveproblem,councilorinfromation
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
@@ -134,7 +134,12 @@ def number(request):
 
 
 def councilorinfro(request):
-    return render(request, 'accounts/councilorinfro.html')
+
+    infro=councilorinfromation.objects.all()
+    context={
+        'infro':infro
+    }
+    return render(request, 'accounts/councilorinfro.html',context)
 
 
 def search(request):
@@ -207,3 +212,14 @@ def download1(request, path):
             return response
 
     raise Http404
+def onlinebd(request):
+    context = {'list':OnlineBd.objects.all()}
+    return  render(request,'accounts/onlinebdpermissionform.html',context)
+
+def onlinebddwnload(request,path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb')as fh:
+            response = HttpResponse(fh.read(), content_type="application/document")
+            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            return response

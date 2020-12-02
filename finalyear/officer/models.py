@@ -44,3 +44,18 @@ class FileAdmin(models.Model):
     class Meta:
         ordering = ('-list_date',)
 
+
+class OnlineBd(models.Model):
+    document = models.FileField(upload_to='media')
+    PersonalNumber = models.CharField(max_length=17, unique=True)
+    BithofDate = models.CharField(max_length=100)
+    is_published = models.BooleanField()
+    list_date = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.PersonalNumber)
+
+    class Meta:
+        ordering = ('-list_date',)
+

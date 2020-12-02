@@ -19,8 +19,7 @@ from django.urls import path
 from .import views
 from django.views.static import serve
 from django.conf import settings
-from .views import PublicListView,public_render_pdf_view
-
+from .views import PublicListView,public_render_pdf_view ,onlinebd
 
 urlpatterns = [
     path('',views.index,name="index"),
@@ -40,6 +39,8 @@ urlpatterns = [
     path('pdf/<pk>/',public_render_pdf_view,name="public_render_pdf_view"),
     path('licencepermissionletter/',views.licencepermissionletter,name='licencepermissionletter'),
     url(r'^download1/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('onlinebd/',views.onlinebd,name="onlinebd"),
+    url(r'^onlinebddwnload/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
 
 
