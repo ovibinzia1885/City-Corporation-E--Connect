@@ -1,0 +1,33 @@
+{% extends 'mayorbase.html' %}
+{% load static %}
+{% block content %}
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Subject </th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+   <tbody>
+
+           {% for list in sms %}
+            <tr>
+              <th scope="row">{{ list.id }}</th>
+              <td>{{ list.subject }}
+              <td>{{ list.description }}</td>
+            <td>
+                     <a class="btn btn-danger" href="../delete1/{{list.id }}" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+    {% endfor %}
+
+
+
+
+  </tbody>
+</table>
+
+{% endblock %}

@@ -6,9 +6,10 @@ from django.views.generic import ListView
 
 from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem,publicfeedback
 from public.views import viewapplylicenece
-from officer.models import Workshop
+from officer.models import Workshop,smsmayor
 from accounts.models import Others
 from mayor.models import OfficerMeeting
+from django.contrib.auth.models import User
 
 
 def officerindex(request):
@@ -69,6 +70,13 @@ def workshop(request):
 
 
 def Smsmayor(request):
+    # current = request.user
+    if request.method == "POST":
+        subject = request.POST['subject']
+        description = request.POST['description']
+        sms=smsmayor(subject=subject,description=description)
+        sms.save()
+
     return render(request, 'officer/mayor.html')
 
 

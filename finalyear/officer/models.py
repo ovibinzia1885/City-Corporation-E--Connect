@@ -59,3 +59,12 @@ class OnlineBd(models.Model):
     class Meta:
         ordering = ('-list_date',)
 
+class smsmayor(models.Model):
+    subject=models.CharField(max_length=250)
+    description=models.CharField(max_length=360)
+    list_date = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def  __str__(self):
+        return self.subject
+
