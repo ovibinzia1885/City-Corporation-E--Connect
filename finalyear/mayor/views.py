@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+
+from accounts.models import Others
 from public.models import HomeApplication
 from public.views import applyapplication
 def mayorindex(request):
-    return  render( request,'mayor/mayorindex.html')
+    obj = Others.objects.all()
+    return  render( request,'mayor/mayorindex.html',{'other': obj})
 
 
 def homeviewapplication(request):

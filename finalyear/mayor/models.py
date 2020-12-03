@@ -15,3 +15,15 @@ class FileAdmin(models.Model):
 
     class Meta:
         ordering = ('-list_date',)
+
+
+class OfficerMeeting(models.Model):
+    title=models.CharField(max_length=250)
+    date=models.DateField(max_length=250)
+    time=models.TimeField(max_length=250)
+    day=models.CharField(max_length=250)
+    is_published = models.BooleanField()
+    roomno=models.CharField(max_length=6,default="ovi")
+
+    def  __str__(self):
+        return str(self.title)

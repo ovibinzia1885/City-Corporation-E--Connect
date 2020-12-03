@@ -18,6 +18,7 @@ urlpatterns = [
     path('wardno3/',views.wardno3,name="wardno3"),
     path('workshop/',views.Workshop,name="workshop"),
     path('send_email/',views.send_email_officer,name='send_email_officer'),
+    path('meeting/',views.meeting,name='meeting'),
 
 
 

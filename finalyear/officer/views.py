@@ -8,6 +8,7 @@ from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem,publi
 from public.views import viewapplylicenece
 from officer.models import Workshop
 from accounts.models import Others
+from mayor.models import OfficerMeeting
 
 
 def officerindex(request):
@@ -81,11 +82,21 @@ def wardno1(request):
 
 
 def wardno2(request):
-    return render(request, 'officer/wardno_2.html')
+    problems = Addproblem.objects.all().filter(WardNo='2')
+
+    context = {
+        'problems': problems
+    }
+    return render(request, 'officer/wardno_2.html',context)
 
 
 def wardno3(request):
-    return render(request, 'officer/wardno_3.html')
+    problems = Addproblem.objects.all().filter(WardNo='3')
+
+    context = {
+        'problems': problems
+    }
+    return render(request, 'officer/wardno_3.html',context)
 
 
 def officerviewapplylicenece(request):
@@ -135,3 +146,10 @@ def send_email_officer(request):
         fail_silently=False,
     )
     return render(request, 'officer/workshop.html',context)
+
+def meeting(request):
+    meeting=OfficerMeeting.objects.all()
+    context={
+        'meeting':meeting
+    }
+    return render(request,'officer/meeting.html',context)

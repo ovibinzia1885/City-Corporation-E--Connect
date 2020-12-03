@@ -1,0 +1,33 @@
+{% extends 'officernavbar.html' %}
+{% load static %}
+{% block content %}
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tittle </th>
+      <th scope="col">date</th>
+      <th scope="col">time</th>
+      <th scope="col">day</th>
+      <th scope="col">RoomNo</th>
+    </tr>
+  </thead>
+   <tbody>
+
+            {% for list in meeting %}
+            <tr>
+              <th scope="row">{{ list.id }}</th>
+              <td>{{ list.title }}</td>
+              <td>{{ list.date }}</td>
+              <td>{{ list.time }}</td>
+              <td>{{ list.day }}</td>
+              <td>{{ list.roomno }}</td>
+             </tr>
+
+
+
+
+  </tbody>
+</table>
+    {% endfor %}
+{% endblock %}

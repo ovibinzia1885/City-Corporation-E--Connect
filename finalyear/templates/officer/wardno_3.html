@@ -1,5 +1,41 @@
 {% extends 'officernavbar.html' %}
+{% load humanize %}
 {% load static %}
 {% block content %}
-    <h1> i am wardno 3</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">ProblemType</th>
+      <th scope="col">WardNo</th>
+      <th scope="col">Address</th>
+      <th scope="col">Breif</th>
+      <th scope="col">ProblemPicture</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for problem in problems %}
+            <tr>
+              <th scope="row">{{ problem.id }}</th>
+              <td>{{ problem.name }}</td>
+              <td>{{ problem.ProblemType }}</td>
+              <td>{{ problem.WardNo }}</td>
+              <td>{{ problem.Address }}</td>
+              <td>{{ problem.Breif }}</td>
+              <td>{{ problem.ProblemPicture }}</td>
+
+              <td>
+                     <a class="btn btn-danger" href="" >Delete</a>
+                    </a>
+              </td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
 {% endblock %}
