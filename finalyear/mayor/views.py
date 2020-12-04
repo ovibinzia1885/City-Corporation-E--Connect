@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from accounts.models import Others
-from public.models import HomeApplication
+from public.models import HomeApplication,publicfeedback
 from public.views import applyapplication
 from officer.models import smsmayor
 def mayorindex(request):
@@ -33,4 +33,16 @@ def delete1(request, id):
     list = smsmayor.objects.get(pk=id)
     list.delete()
     return redirect(officersms)
+
+def ovijok(request):
+    back=publicfeedback.objects.filter(throwby='mayor')
+    context={
+        'back':back
+    }
+    return  render(request,'mayor/publicovijok.html',context)
+
+def deleteovijok(request,id):
+    list = publicfeedback.objects.get(pk=id)
+    list.delete()
+    return redirect(ovijok)
 

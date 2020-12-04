@@ -80,7 +80,7 @@ class Addproblem(models.Model):
 class publicfeedback(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     throwby=models.CharField(max_length=250)
-    throwby=models.CharField(max_length=250)
+    problemtype=models.CharField(max_length=250)
     description=models.CharField(max_length=250)
 
     def  __str__(self):

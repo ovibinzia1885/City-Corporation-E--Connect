@@ -19,8 +19,12 @@ def officerindex(request):
 
 
 def Feedback(request):
+    back=publicfeedback.objects.filter(throwby='officer')
+    context={
+        'back':back
+    }
 
-    return render(request, 'officer/councilordetlies.html')
+    return render(request, 'officer/councilordetlies.html',context)
 
 
 def taxview(request):
@@ -161,3 +165,9 @@ def meeting(request):
         'meeting':meeting
     }
     return render(request,'officer/meeting.html',context)
+
+def deletefeedback(request,id):
+    list = publicfeedback.objects.get(pk=id)
+    list.delete()
+    return redirect(Feedback)
+

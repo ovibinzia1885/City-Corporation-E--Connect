@@ -1,7 +1,7 @@
-{% extends 'officernavbar.html' %}
+{% extends 'mayorbase.html' %}
 {% load static %}
 {% block content %}
-     <table class="table table-striped">
+      <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -11,8 +11,7 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-
-     <tbody>
+ <tbody>
 
             {% for list in back %}
             <tr>
@@ -21,7 +20,7 @@
               <td>{{ list.problemtype }}</td>
               <td>{{ list.description }}</td>
             <td>
-                <a  class="btn-danger" href="{% url 'deletefeedback' list.id %}">Delete</a>
+                <a  class="btn-danger" href="{% url 'deleteovijok' list.id %}">Delete</a>
             </td>
              </tr>
    {% endfor %}

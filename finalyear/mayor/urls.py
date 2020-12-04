@@ -6,4 +6,6 @@ urlpatterns = [
     path('homeviewapplication/',views.homeviewapplication,name="homeviewapplication"),
     path('delete/<id>/', views.delete, name='delete'),
     path('delete1/<id>/', views.delete1, name='delete1'),
+    path('ovijok/',views.ovijok,name="ovijok"),
+    path('deleteovijok/<id>', views.deleteovijok, name='deleteovijok'),
 ]

@@ -19,6 +19,7 @@ urlpatterns = [
     path('workshop/',views.Workshop,name="workshop"),
     path('send_email/',views.send_email_officer,name='send_email_officer'),
     path('meeting/',views.meeting,name='meeting'),
+    path('deletefeedback/<id>',views.deletefeedback,name='deletefeedback'),
 
 
 
