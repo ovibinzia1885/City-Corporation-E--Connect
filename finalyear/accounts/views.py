@@ -8,7 +8,7 @@ from django.contrib import messages, auth
 from django.urls import reverse
 from django.contrib.auth.models import User
 from mayor.models import FileAdmin
-from officer.models import uploadbudget,FileAdmin,OnlineBd
+from officer.models import uploadbudget,FileAdmin,OnlineBd,notice
 from .models import Others,School,FamousPlace,hotline,recentlysolveproblem,councilorinfromation
 
 from django.http import HttpResponseRedirect, Http404, HttpResponse
@@ -120,8 +120,12 @@ def schoolcollege(request):
     return render(request, 'accounts/schoolcollege.html',context)
 
 
-def notice(request):
-    return render(request, 'accounts/notice.html')
+def officernotice(request):
+    note=notice.objects.all()
+    context={
+        'note':note
+    }
+    return render(request, 'accounts/notice.html',context)
 
 
 def number(request):
@@ -143,21 +147,18 @@ def councilorinfro(request):
 
 
 def search(request):
-    print(2)
     givenname = request.POST.get("NIDNumber")
-    print(3)
-    print(givenname)
     student = FileAdmin.objects.all().filter(NIDNumber=givenname)
     return render(request, 'accounts/permiisionletter.html', {'file': student})
 
 
 def others(request):
     # other = Others.objects.all()
-    print(5)
+    # print(5)
     field_name = 'photo_mayor'
     obj = Others.objects.first()
     field_value = getattr(obj, field_name)
-    print(5)
+    # print(5)
 
     return render(request, 'partials/slider.html', {'other': field_value})
 
@@ -223,3 +224,13 @@ def onlinebddwnload(request,path):
             response = HttpResponse(fh.read(), content_type="application/document")
             response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
             return response
+def search1(request):
+    PersonalNumber = request.POST.get("PersonalNumber")
+    pb1 = OnlineBd.objects.all().filter(PersonalNumber=PersonalNumber)
+    return render(request, 'accounts/onlinebdpermissionform.html',{'list': pb1})
+
+
+def search2(request):
+    givenname = request.POST.get("NIDNumber")
+    student = FileAdmin.objects.all().filter(NIDNumber=givenname)
+    return render(request, 'accounts/licencepermiisionletter.html', {'list': student})

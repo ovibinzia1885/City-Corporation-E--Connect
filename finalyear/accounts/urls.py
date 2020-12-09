@@ -28,7 +28,7 @@ urlpatterns = [
     path('solveproblem/',views.solveproblem,name="solveproblem"),
     path('permissionletter/',views.permissionletter,name="permissionletter"),
     path('schoolcollege/',views.schoolcollege,name="schoolcollege"),
-    path('notice/',views.notice,name="notice"),
+    path('officernotice/',views.officernotice,name="officernotice"),
     path('number/',views.number,name="number"),
     url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('councilorinfro/',views.councilorinfro,name='councilorinfro'),
@@ -41,6 +41,8 @@ urlpatterns = [
     url(r'^download1/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('onlinebd/',views.onlinebd,name="onlinebd"),
     url(r'^onlinebddwnload/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('search1', views.search1, name="search1"),
+    path('search2', views.search2, name="search2"),
 
 
 

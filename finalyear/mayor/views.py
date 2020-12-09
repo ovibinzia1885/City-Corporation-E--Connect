@@ -1,4 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from accounts.models import Others
 from public.models import HomeApplication,publicfeedback
@@ -45,4 +47,13 @@ def deleteovijok(request,id):
     list = publicfeedback.objects.get(pk=id)
     list.delete()
     return redirect(ovijok)
+
+def logout(request):
+    try:
+        del request.session['id']
+        del request.session['role']
+    except KeyError:
+        pass
+    return HttpResponseRedirect(reverse('index'))
+
 

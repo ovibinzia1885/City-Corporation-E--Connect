@@ -6,7 +6,7 @@ from django.views.generic import ListView
 
 from public.models import ApplyLicence, HomeTax, Onlinebdapply, Addproblem,publicfeedback
 from public.views import viewapplylicenece
-from officer.models import Workshop,smsmayor
+from officer.models import Workshop,smsmayor,notice
 from accounts.models import Others
 from mayor.models import OfficerMeeting
 from django.contrib.auth.models import User

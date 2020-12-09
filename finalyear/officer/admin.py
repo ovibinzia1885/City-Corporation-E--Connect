@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Workshop,uploadbudget,FileAdmin,OnlineBd,smsmayor
+from .models import Workshop,uploadbudget,FileAdmin,OnlineBd,smsmayor,notice
 
 
 class workshopAdmin(admin.ModelAdmin):
@@ -14,3 +14,4 @@ admin.site.register(uploadbudget)
 admin.site.register(FileAdmin)
 admin.site.register(OnlineBd)
 admin.site.register(smsmayor)
+admin.site.register(notice)

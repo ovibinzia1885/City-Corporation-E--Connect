@@ -68,3 +68,15 @@ class smsmayor(models.Model):
     def  __str__(self):
         return self.subject
 
+class notice(models.Model):
+    title=models.CharField(max_length=250)
+    date=models.DateField()
+    is_published = models.BooleanField()
+    list_date = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def  __str__(self):
+        return self.title
+
+
+

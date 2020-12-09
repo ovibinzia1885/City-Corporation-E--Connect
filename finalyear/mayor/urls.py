@@ -8,4 +8,5 @@ urlpatterns = [
     path('delete1/<id>/', views.delete1, name='delete1'),
     path('ovijok/',views.ovijok,name="ovijok"),
     path('deleteovijok/<id>', views.deleteovijok, name='deleteovijok'),
+    path('logout/', views.logout, name='logout'),
 ]

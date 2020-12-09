@@ -2,17 +2,19 @@
 {% load static %}
 {% block content %}
 
-    <tr>
+<table class="table table-striped">
+  <thead>
      <tr>
 
-        <th>#</th>
+{#        <th>#</th>#}
         <th>THana</th>
         <th>GovtHOspital</th>
         <th>Firerservice</th>
         <th>Bus-counter</th>
         <th>Train-counter</th>
      </tr>
-    </br>
+  </thead>
+    <tbody>
 
       <tr>
         {% for list in list %}
@@ -22,7 +24,9 @@
        <td>{{list.Bus_counter}}</td>
        <td>{{list.Train_counter}}</td>
             </tr>
+    {% endfor %}
+ </tbody>
 
     </tabel>
-    {% endfor %}
+
 {% endblock %}

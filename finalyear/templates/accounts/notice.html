@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<table class="table table-striped">
+  <thead>
+   <tr>
 
-</body>
-</html>
+{#        <th>#</th>#}
+        <th>Subject</th>
+        <th>Date</th>
+{#        <th>Link</th>#}
+
+     </tr>
+  </thead>
+     <tbody>
+ <tr>
+    {% for list in note %}
+
+        <td>{{ list.title }}</td>
+        <td>{{ list.date }}</td>
+        </tr>
+      {% endfor %}
+     </tbody>
+        </table>
+{% endblock %}
+

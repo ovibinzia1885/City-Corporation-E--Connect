@@ -7,12 +7,12 @@
 	<title></title>
 </head>
  <table class="table mb-0">
-{#     <form action="{% url 'search' %}" method="post">#}
-{#         {% csrf_token %}#}
-{#         <tr><input name="NIDNumber"></tr>#}
-{#        <tr><button type="submit">Search</button></tr>#}
-{#      </td>#}
-{#     </form>#}
+     <form action="{% url 'search1' %}" method="post">
+         {% csrf_token %}
+         <tr><input name="PersonalNumber" placeholder="personalNumber"></tr>
+        <tr><button type="submit">Search</button></tr>
+      </td>
+     </form>
 <thead>
       <tr>
 
@@ -33,11 +33,14 @@
         <td>{{post.BithofDate}}</td>
         <td><a href="{{post.document.url}}" download="{{post.document.url}}">Download</a></td>
   </tr>
+
+{% endfor %}
         </body>
         </table>
+
 </html>
 
-	{% endfor %}
+
 
 {% endblock %}
 
