@@ -140,4 +140,6 @@ EMAIL_HOST_PASSWORD = 'diu123456' # your password
 EMAIL_PORT = 587 # for gmail
 
 
+LOGIN_URL = "/login"
+
 

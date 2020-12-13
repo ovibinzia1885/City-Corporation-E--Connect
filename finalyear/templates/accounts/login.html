@@ -25,7 +25,9 @@
                   <label for="password2">Password</label>
                   <input type="password" name="password" class="form-control" required>
                 </div>
-
+                <div class="d-flex justify-content-center links">
+						Forgot password? <a href="{% url 'reset_password' %}" class="ml-2">Reset password</a>
+					</div>
 
                 <input type="submit" value="Login" class="btn btn-danger btn-block">
               </form>

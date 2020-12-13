@@ -1,6 +1,7 @@
 import os
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.template.loader import get_template
 from django.views.generic import ListView
 from xhtml2pdf import pisa
@@ -19,9 +20,9 @@ from userprofile.models import UserRole
 
 
 def index(request):
-    print(5)
+    # print(5)
     obj = Others.objects.all()
-    print(5)
+    # print(5)
 
     return render(request, 'accounts/index.html', {'other': obj})
 

@@ -20,6 +20,7 @@ from .import views
 from django.views.static import serve
 from django.conf import settings
 from .views import PublicListView,public_render_pdf_view ,onlinebd
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('',views.index,name="index"),
@@ -43,6 +44,22 @@ urlpatterns = [
     url(r'^onlinebddwnload/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('search1', views.search1, name="search1"),
     path('search2', views.search2, name="search2"),
+
+    path('reset_password/',
+         auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),
+         name="reset_password"),
+
+    path('reset_password_sent/',
+         auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"),
+         name="password_reset_done"),
+
+    path('reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(template_name="accounts/password_reset_form.html"),
+         name="password_reset_confirm"),
+
+    path('reset_password_complete/',
+         auth_views.PasswordResetCompleteView.as_view(template_name="accounts/password_reset_done.html"),
+         name="password_reset_complete"),
 
 
 

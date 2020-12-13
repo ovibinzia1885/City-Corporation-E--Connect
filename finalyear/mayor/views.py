@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -48,7 +49,10 @@ def deleteovijok(request,id):
     list.delete()
     return redirect(ovijok)
 
-def logout(request):
+
+def user_logout(request):
+    logout(request)
+    return
     try:
         del request.session['id']
         del request.session['role']
