@@ -151,8 +151,8 @@ def send_email_officer(request):
     }
 
     send_mail(
-        'welcome to enrol ',
-        'Thank you for contacting us. We Will contact you soon. DJRE Team.',
+        'welcome to enroll ',
+        'Thank you for contacting us. We Will contact you soon.  and given information.',
         settings.EMAIL_HOST_USER,
         [request.user.email, settings.EMAIL_HOST_USER],
         fail_silently=False,

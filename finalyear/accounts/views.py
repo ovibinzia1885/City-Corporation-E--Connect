@@ -81,6 +81,7 @@ def login(request):
             elif request.user.userrole.role == 'officer':
                 return render(request, 'officer/officerindex.html')
             elif request.user.userrole.role == 'public':
+                request.session['public_username'] = request.user.username
                 return render(request, 'public/publicindex.html')
         else:
             messages.error(request, 'Invalid Credentials!')

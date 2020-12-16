@@ -7,12 +7,13 @@ from django.contrib.auth.models import User
 from accounts.models import Others
 from .models import ApplyLicence, HomeApplication, HomeTax, Onlinebdapply, Addproblem,publicfeedback
 
-
 def publicindex(request):
-    obj = Others.objects.all()
-    # print(6)
-    return render(request, 'public/publicindex.html', {'other': obj})
-
+    if request.session.get('public_username'):
+        print(request.session.get('public_username'))
+        obj = Others.objects.all()
+        return render(request, 'public/publicindex.html', {'other': obj})
+    else:
+        return redirect('login')
 
 def addproblem(request):
     current = request.user
@@ -200,7 +201,7 @@ def deshbord(request):
 
 
 def logout(request):
-	if request.method == "POST":
-		auth.logout(request)
-		# messages.success(request, 'You are now logged out')
+	if request.method=="POST":
+         auth.logout(request)
+         del request.session['public_username']
 	return HttpResponseRedirect(reverse('index'))
