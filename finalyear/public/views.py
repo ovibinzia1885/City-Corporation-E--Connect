@@ -205,3 +205,6 @@ def logout(request):
          auth.logout(request)
          del request.session['public_username']
 	return HttpResponseRedirect(reverse('index'))
+
+
+
